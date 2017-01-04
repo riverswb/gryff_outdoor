@@ -30,7 +30,7 @@ RSpec.describe Cart, type: :model do
   it "can return the total price of all items in cart" do
     total = cart.contents.inject(0) do |sum, item_id|
       item = Item.find(item_id[0])
-      sum += item.price
+      sum += item.price * item_id[1]
       sum
     end
 

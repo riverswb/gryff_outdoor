@@ -5,6 +5,7 @@ class CartsController < ApplicationController
     @items = @cart.contents.map do |item, quantity|
       [Item.find(item), quantity]
     end
+    @total_cost = @cart.total_cost
   end
 
   def create
