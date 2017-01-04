@@ -18,4 +18,10 @@ RSpec.describe Cart, type: :model do
     
     expect(cart.contents).to eq({"1" => 2, "2" => 1})
   end
+
+  it "can return how many of a particular item is has" do
+    cart.add_item(1)
+
+    expect(cart.count_of(1)).to eq 2
+  end
 end
