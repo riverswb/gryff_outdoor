@@ -1,5 +1,7 @@
 <h2>Items in your Cart</h2>
 <% @items.each do |item| %>
   <p><%= item[0].title %> : <%= item[1] %></p>
+  <p><%= item[0].price %></p>
+  <p><%= item[0].description %></p>
 <% end %>
 <p><%= @total_cost %></p>
