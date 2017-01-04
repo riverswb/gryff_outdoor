@@ -9,10 +9,17 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul>
+          <%= link_to "View Cart", cart_path(@cart) %>
+        </ul>
+      </div>
+    </nav>
     <% flash.each do |type, message| %>
       <%= content_tag :div, message, class: type %>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>
