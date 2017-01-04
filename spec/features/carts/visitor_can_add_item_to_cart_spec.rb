@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "When a user adds items to their cart", type: :feature do
+RSpec.feature "When a user adds an item to their cart", type: :feature do
   before(:all) do
     create_list(:item, 10)
   end
