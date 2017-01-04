@@ -4,7 +4,7 @@ RSpec.describe Cart, type: :model do
 
   attr_reader :cart
 
-  before(:all) do
+  before(:each) do
     @cart = Cart.new({"1" => 1})
   end
   
