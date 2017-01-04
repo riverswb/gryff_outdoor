@@ -1,8 +1,10 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
   
-  def index
-
+  def show
+    @items = @cart.contents.map do |item, quantity|
+      [Item.find(item), quantity]
+    end
   end
 
   def create
