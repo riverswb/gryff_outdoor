@@ -1,0 +1,17 @@
+<h2 class="cart-title">Items in your Cart</h2>
+  <div class="cart-item attribute-name">
+    <span class="cart-attribute">Name</span>
+    <span class="cart-attribute">Price</span>
+    <span class="cart-attribute">Description</span>
+  </div>
+  <% @items.each do |item| %>
+    <div class="panel panel-default cart-item">
+      <span class="cart-attribute"><%= item[0].title %> : <%= item[1] %></span>
+      <span class="cart-attribute"><%= number_to_currency(item[0].price) %></span>
+      <span class="cart-attribute"><%= item[0].description %></span>
+      <%= link_to "Remove", cart_path(@cart, item_id: item[0].id), method: "delete", class: "btn btn-danger" %>
+    </div>
+  <% end %>
+<div class="cart-info">
+  <h4>Total Cost: <%= number_to_currency(@total_cost) %></h4>
+</div>
