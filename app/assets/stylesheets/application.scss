@@ -3,13 +3,8 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Reenie+Beanie');
 
 .parallax {
-    /* The image used */
     background-image: url("landing_page_banner.jpg");
-
-    /* Set a specific height */
     height: 600px;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,11 +42,13 @@
 .category-right {
   float: right;
   margin-right: 20px;
+  text-align: right;
 }
 
 .category-left {
   float: left;
   margin-left: 20px;
+  text-align: left;
 }
 
 .header {
@@ -62,4 +59,17 @@
   font-family: "Cabin Sketch";
   font-size: 4em;
   font-weight: 600;
+}
+
+.description {
+  font-family: "Reenie Beanie";
+  font-size: 3em;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
