@@ -13,9 +13,8 @@ RSpec.feature "When a user removes an item from their cart" do
     click_on "View Cart"
 
     click_on("Remove", match: :first)
-    binding.pry
-    expect(current_path).to eq cart_path
-    expect(page).to have_content "Successfully removed #{item.title} from your cart."
-    expect(page).to have_link item_path(item)
+
+    expect(page).to have_content "Successfully removed #{items[0].title} from your cart."
+    expect(page).to have_link items[0].title
   end
 end
