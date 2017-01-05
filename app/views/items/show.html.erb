@@ -1,5 +1,5 @@
 <h2><%= @item.title %></h2>
-<p><%= @item.price %></p>
+<p><%= number_to_currency(@item.price) %></p>
 <p><%= @item.description %></p>
 <%= image_tag(@item.image) %>
 <%= button_to "Add Item", carts_path(item_id: @item.id), class: "btn btn-primary" %>

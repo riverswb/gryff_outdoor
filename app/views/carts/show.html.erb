@@ -1,8 +1,8 @@
 <h2>Items in your Cart</h2>
 <% @items.each do |item| %>
   <p><%= item[0].title %> : <%= item[1] %></p>
-  <p><%= item[0].price %></p>
+  <p><%= number_to_currency(item[0].price) %></p>
   <p><%= item[0].description %></p>
   <%= link_to "Remove", cart_path(@cart, item_id: item[0].id), method: "delete", class: "btn btn-danger" %>
 <% end %>
-<p><%= @total_cost %></p>
+<p><%= number_to_currency(@total_cost) %></p>
