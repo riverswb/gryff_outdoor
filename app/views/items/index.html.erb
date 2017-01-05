@@ -4,6 +4,7 @@
     <li class="list-group-item col-md-4"><img src="<%= item.image %>"
       class="img-thumbnail" alt="Responsive thunbnail"</li>
     <li class="list-group-item col-md-4"><strong><%= item.title %></strong>
-      <br/> <%= item.description %> <br/> $<%= item.price %></li>
+      <br/> <%= item.description %> <br/> $<%= item.price %><br/>
+      <%= button_to "Add to cart", carts_path(item_id: item.id, class:"btn btn-primary") %></li>
   </ul>
 <% end %>
