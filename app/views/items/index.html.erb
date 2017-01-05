@@ -1,7 +1,9 @@
 <% @items.each do |item| %>
-  <ol>
-    <li><%= item.image %></li>
-    <li><%= item.title %> </li>
-    <li>Add To Cart</li>
-  </ol>
+  <ul class="list-group row">
+    <li class="col-md-2"></li>
+    <li class="list-group-item col-md-4"><img src="<%= item.image %>"
+      class="img-thumbnail" alt="Responsive thunbnail"</li>
+    <li class="list-group-item col-md-4"><strong><%= item.title %></strong>
+      <br/> <%= item.description %> <br/> $<%= item.price %></li>
+  </ul>
 <% end %>
