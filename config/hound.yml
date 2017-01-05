@@ -1,0 +1,2 @@
+# change how rubocop is configured through hound
+config_file: rubocop.yml
