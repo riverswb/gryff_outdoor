@@ -18,5 +18,13 @@ class CartsController < ApplicationController
     redirect_to item_path(item)
   end
 
+  def destroy
+    item = Item.find(params[:item_id])
+    binding.pry
+    @cart.remove(params[item.id])
+    flash[:notice] = "Successfully removed #{item.title} from your cart."
+    redirect_to cart_path(@cart)
+  end
+
 
 end

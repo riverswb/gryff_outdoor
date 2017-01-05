@@ -3,5 +3,6 @@
   <p><%= item[0].title %> : <%= item[1] %></p>
   <p><%= item[0].price %></p>
   <p><%= item[0].description %></p>
+  <%= link_to "Remove", cart_path(@cart, item_id: item[0].id), method: "delete", class: "btn btn-danger" %>
 <% end %>
 <p><%= @total_cost %></p>
