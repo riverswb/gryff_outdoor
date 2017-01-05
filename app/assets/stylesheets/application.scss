@@ -3,12 +3,12 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Reenie+Beanie');
 
 .parallax {
-    background-image: url("landing_page_banner.jpg");
-    height: 600px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("landing_page_banner.jpg");
+  height: 600px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hiking {
@@ -35,8 +35,8 @@
 #title {
   font-family: "Cabin Sketch";
   font-size: 8em;
-  margin-top: -30px;
   margin-left: 30px;
+  margin-top: -30px;
 }
 
 .category-right {
