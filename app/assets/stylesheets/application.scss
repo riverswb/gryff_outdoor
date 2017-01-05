@@ -5,10 +5,10 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Reenie+Beanie');
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Reenie+Beanie|Cabin');
 
 .parallax {
-  background-image: url("landing_page_banner.jpg");
+  background-image: image-url("landing_page_banner.jpg");
   height: 600px;
   background-attachment: fixed;
   background-position: center;
@@ -17,17 +17,17 @@
 }
 
 .hiking {
-  background-image: url("hiking_div.jpg");
+  background-image: image-url("hiking_div.jpg");
   height: 300px;
 }
 
 .fishing {
-  background-image: url("fishing_div.jpg");
+  background-image: image-url("fishing_div.jpg");
   height: 300px;  
 }
 
 .climbing {
-  background-image: url("climbing_div.jpg");
+  background-image: image-url("climbing_div.jpg");
   height: 300px;    
 }
 
@@ -35,13 +35,14 @@
   font-family: "Reenie Beanie";
   font-size: 3em;
   margin-left: 20px;
+  margin-top: -28px;
 }
 
 #title {
   font-family: "Cabin Sketch";
   font-size: 8em;
   margin-left: 30px;
-  margin-top: -30px;
+  margin-top: -45px;
 }
 
 .category-right {
@@ -58,6 +59,7 @@
 
 .header {
   margin-left: 5px;
+  margin-top: -60px;
 }
 
 .name {
@@ -79,3 +81,23 @@
 .right {
   float: right;
 }
+
+.brand {
+  margin-left: -20px;
+}
+
+nav.navbar-findcond { height: 30px; }
+nav.navbar-findcond { background: #fff; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; }
+nav.navbar-findcond a { color: #AB4F26; }
+nav.navbar-findcond ul.navbar-nav a { font-family: 'Cabin'; color: #AB4F26; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
+nav.navbar-findcond ul.navbar-nav a:hover,
+nav.navbar-findcond ul.navbar-nav a:visited,
+nav.navbar-findcond ul.navbar-nav a:focus,
+nav.navbar-findcond ul.navbar-nav a:active { background: #fff; }
+nav.navbar-findcond ul.navbar-nav a:hover { border-color: #AB4F26; }
+nav.navbar-findcond li.divider { background: #ccc; }
+nav.navbar-findcond button.navbar-toggle { background: #AB4F26; border-radius: 2px; }
+nav.navbar-findcond button.navbar-toggle:hover { background: #999; }
+nav.navbar-findcond button.navbar-toggle > span.icon-bar { background: #fff; }
+nav.navbar-findcond span.badge { background: #AB4F26; font-weight: normal; font-size: 11px; }
+nav.navbar-findcond span.badge.new { background: rgba(255, 0, 0, 0.8); color: #fff; }
