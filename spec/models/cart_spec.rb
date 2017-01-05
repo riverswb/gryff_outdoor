@@ -43,4 +43,11 @@ RSpec.describe Cart, type: :model do
 
     expect(cart.contents).to eq({})
   end
+
+  it "can reduce the quanity of a specific item by one" do
+    cart.add_item(items[0].id.to_s)
+    cart.remove(items[0].id)
+
+    expect(cart.contents).to eq({items[0].id.to_s => 1})
+  end
 end
