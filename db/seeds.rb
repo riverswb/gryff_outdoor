@@ -1,1 +1,1 @@
-FactoryGirl.create_list(:item, 10)
+FactoryGirl.create_list(:category_with_items, 10)
