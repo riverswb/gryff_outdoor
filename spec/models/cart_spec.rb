@@ -36,4 +36,11 @@ RSpec.describe Cart, type: :model do
 
     expect(cart.total_cost).to eq total
   end
+
+  it "can remove item from cart" do
+    expect(cart.contents).to eq({items[0].id.to_s => 1})
+    cart.remove(items[0].id)
+
+    expect(cart.contents).to eq({})
+  end
 end

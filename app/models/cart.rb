@@ -11,6 +11,11 @@ class Cart
     contents[item_id.to_s] += 1
   end
 
+  def remove(item_id)
+    contents[item_id.to_s] -= 1
+    contents.delete_if {|k, v| v == 0 }
+  end
+
   def count_of(item_id)
     contents[item_id.to_s]
   end
