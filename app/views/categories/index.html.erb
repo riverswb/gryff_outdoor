@@ -1,0 +1,10 @@
+<h1><%= @category.name %></h1>
+<% @category.items.each do |item| %>
+  <ul class="list-group row">
+    <li class="col-md-2"></li>
+    <li class="list-group-item col-md-4"><img src="<%= item.image %>"
+      class="img-thumbnail" alt="Responsive thunbnail"</li>
+    <li class="list-group-item col-md-4"><strong><%= item.title %></strong>
+      <br/> <%= item.description %> <br/> $<%= item.price %></li>
+  </ul>
+<% end %>

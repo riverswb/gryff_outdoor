@@ -5,3 +5,77 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Reenie+Beanie');
+
+.parallax {
+  background-image: url("landing_page_banner.jpg");
+  height: 600px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hiking {
+  background-image: url("hiking_div.jpg");
+  height: 300px;
+}
+
+.fishing {
+  background-image: url("fishing_div.jpg");
+  height: 300px;  
+}
+
+.climbing {
+  background-image: url("climbing_div.jpg");
+  height: 300px;    
+}
+
+#pun {
+  font-family: "Reenie Beanie";
+  font-size: 3em;
+  margin-left: 20px;
+}
+
+#title {
+  font-family: "Cabin Sketch";
+  font-size: 8em;
+  margin-left: 30px;
+  margin-top: -30px;
+}
+
+.category-right {
+  float: right;
+  margin-right: 20px;
+  text-align: right;
+}
+
+.category-left {
+  float: left;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.header {
+  margin-left: 5px;
+}
+
+.name {
+  font-family: "Cabin Sketch";
+  font-size: 4em;
+  font-weight: 600;
+}
+
+.description {
+  font-family: "Reenie Beanie";
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
