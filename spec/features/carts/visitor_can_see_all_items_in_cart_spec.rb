@@ -24,7 +24,6 @@ RSpec.feature "When a users visits cart path" do
 
     expect(page).to have_content items[0].title
     expect(page).to have_content items[0].price
-    expect(page).to have_content items[0].description
     expect(page).to have_content items[2].title
     expect(page).to have_content total_cost.round(2)
   end
