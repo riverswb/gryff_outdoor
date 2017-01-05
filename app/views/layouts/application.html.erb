@@ -11,9 +11,13 @@
   <body>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-        <ul>
-          <%= link_to "View Cart", cart_path(@cart) %>
-        </ul>
+        <div class="navbar-left">
+          <%= image_tag "gryffindor_crest",class: "brand" %>
+        </div>
+        <div class="navbar-header navbar-right">
+          <%= link_to "Items", items_path, class: "navbar-text" %>
+          <%= link_to "View Cart", cart_path(@cart), class: "navbar-text" %>
+        </div
       </div>
     </nav>
     <% flash.each do |type, message| %>
