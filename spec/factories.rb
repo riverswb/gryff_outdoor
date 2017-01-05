@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :category do
-    name        {Faker::Commerce.department}
+    name  { [:hiking, :fishing, :climbing].sample }
   end
 
   factory :item do
