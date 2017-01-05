@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor can view all items", type: :feature do
+
+  attr_reader :cart
+
+  before(:each) do
+    @cart = Cart.new(nil)
+  end
+
   scenario "visitor goes to items index" do
     create_list(:item, 6)
     first_item = Item.first
@@ -22,13 +29,12 @@ RSpec.feature "Visitor can view all items", type: :feature do
 
     visit items_path
 
-    click_on "Add to cart"
+    within first("ul") do
+      click_on "Add to cart"
+    end
 
-    expect(page).to have_content("#{first_item.title} has been added to the cart")
+    expect(page).to have_content("You now have 1 #{first_item.title}.")
 
-    visit cart_path
-
-    expect(page).to have_content(first_item.title)
-    expect(page).to have_content(first_item.price)
+    expect(current_path).to eq(items_path)
   end
 end
