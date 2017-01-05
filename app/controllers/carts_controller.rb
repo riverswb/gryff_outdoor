@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
-  
+
   def show
     @items = @cart.contents.map do |item, quantity|
       [Item.find(item), quantity]
@@ -15,7 +15,7 @@ class CartsController < ApplicationController
     session[:cart] = @cart.contents
 
     flash[:notice] = "You now have #{pluralize(@cart.count_of(item.id), item.title)}."
-    redirect_to item_path(item)
+    redirect_back fallback_location: items_path
   end
 
   def destroy
