@@ -6,9 +6,8 @@ Item.create(title: "bush", description: "it grows for longer than you will
             "https://upload.wikimedia.org/wikipedia/commons/7/7e/Person-tree.jpg")
 
 Item.create(title: "Tree 3 ", description: "it grows for longer than you will
-            live", price: 99.98, image: "http://media.istockphoto.com/photos/
-            maple-tree-picture-id474894760?k=6&m=474894760&s=170667a&w=0&h=diYx
-            Rtr0xnyKbPNGDp3Q8tgdc64na_8a7irRKp7TxMQ=")
+            live", price: 99.98, image:
+            "http://media.istockphoto.com/photos/maple-tree-picture-id474894760?k=6&m=474894760&s=170667a&w=0&h=diYxRtr0xnyKbPNGDp3Q8tgdc64na_8a7irRKp7TxMQ=")
 
 Item.create(title: "Tree 4", description: "it grows for longer than you will
             live", price: 99.98, image:
