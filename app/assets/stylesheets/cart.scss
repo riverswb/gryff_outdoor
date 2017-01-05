@@ -3,21 +3,31 @@
 }
 .cart-item{
   margin-left:15 px;
-  width: 75%;
   position:relative;
   left: 20px;
   padding: 15px
 }
+
+.item-list{
+  width: 75%;
+}
 .attribute-name{
-  width: 188%;;
+}
+
+.label-left{
+  position: relative;
+
 }
 .cart-attribute{
-  width: 20%;
-  padding-right:9%;
+  width: 200%;
+  padding-right:22%;
 }
 
 .cart-info{
-  float:right;
+  float: right;
   position:relative;
-  right:50px;
+  top:-171px;
+  left: -80px;
+  padding: 10px;
+
 }

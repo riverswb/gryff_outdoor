@@ -2,16 +2,18 @@
   <div class="cart-item attribute-name">
     <span class="cart-attribute">Name</span>
     <span class="cart-attribute">Price</span>
-    <span class="cart-attribute">Description</span>
+    <span class="cart-attribute label-left">Quantity</span>
   </div>
   <% @items.each do |item| %>
-    <div class="panel panel-default cart-item">
-      <span class="cart-attribute"><%= item[0].title %> : <%= item[1] %></span>
+  <div class="item-list">
+    <div class="cart-item panel panel-default">
+      <span class="cart-attribute"><%= item[0].title %></span>
       <span class="cart-attribute"><%= number_to_currency(item[0].price) %></span>
-      <span class="cart-attribute"><%= item[0].description %></span>
+      <span class="cart-attribute"><%= item[1] %></span>
       <%= link_to "Remove", cart_path(@cart, item_id: item[0].id), method: "delete", class: "btn btn-danger" %>
     </div>
+  </div>
   <% end %>
-<div class="cart-info">
+<div class="cart-info  cart-item panel panel-default">
   <h4>Total Cost: <%= number_to_currency(@total_cost) %></h4>
 </div>
