@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Reenie+Beanie');
 
 .parallax {
     /* The image used */
@@ -28,4 +29,21 @@
 .climbing {
   background-image: url("climbing_div.jpg");
   height: 300px;    
+}
+
+#pun {
+  font-family: "Reenie Beanie";
+  font-size: 3em;
+  margin-left: 20px;
+}
+
+#title {
+  font-family: "Cabin Sketch";
+  font-size: 8em;
+  margin-top: -30px;
+  margin-left: 30px;
+}
+
+.header {
+  margin-left: 5px;
 }
