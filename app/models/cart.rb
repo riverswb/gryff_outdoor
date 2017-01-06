@@ -16,6 +16,11 @@ class Cart
     contents.delete_if {|k, v| v == 0 }
   end
 
+  def change_quantity(item_id, quantity_change)
+    return add_item(item_id) if quantity_change == "increase"
+    remove(item_id)
+  end
+
   def count_of(item_id)
     contents[item_id.to_s]
   end
