@@ -18,4 +18,5 @@
   <% end %>
 <div class="cart-info  cart-item panel panel-default">
   <h4>Total Cost: <%= number_to_currency(@total_cost) %></h4>
+  <h4><%= link_to "Login or Create Account to Checkout", login_path, class: "btn btn-primary" %></h4>
 </div>
