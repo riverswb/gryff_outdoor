@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :carts, only: [:create, :show, :destroy]
   resources :users, only: [:new, :create]
+  get '/dashboard', to: "users#show"
   get '/login', to: "sessions#new"
   get '*category' => 'categories#index'
 end

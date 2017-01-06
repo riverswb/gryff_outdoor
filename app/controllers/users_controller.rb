@@ -5,11 +5,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      flash[:success] = "Logged in as #{@user.first_name} #{@user.last_name}"
-      return redirect_to "/dashboard"
+    user = User.new(user_params)
+    if user.save
+      session[:user] = user.id
+      flash[:success] = "Logged in as #{user.first_name} #{user.last_name}"
+      redirect_to dashboard_path
+    else
+      #add sad path
     end
+  end
+
+  def show
+    @user = User.find(session[:user])
   end
 
   private
