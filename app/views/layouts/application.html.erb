@@ -24,15 +24,15 @@
 			<ul class="nav navbar-nav navbar-right">
         <li><%= session[:message] %><span class="sr-only">(current)</span></li>
 				<li class="active"><%= link_to "Items", items_path %><span class="sr-only">(current)</span></li>
-        <li class="active"><%= link_to "View Cart", cart_path(@cart) %><span class="sr-only">(current)</span></li>
+        <li class="active"><%= link_to "View Cart", cart_path %><span class="sr-only">(current)</span></li>
         <li class="active"><%= link_to @login_status, @login_path %><span class="sr-only">(current)</span></li>
       </ul>
       </div>
 		</div>
   </div>
-</nav></br>
+</nav>
     <% flash.each do |type, message| %>
-      <%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
+        </br></br></br></br><%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
     <% end %>
 
     <%= yield %>

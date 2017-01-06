@@ -28,11 +28,8 @@ class CartsController < ApplicationController
   end
 
   def update
-    if params[:quantity_change] == "increase"
-      @cart.contents[params[:item_id]] += 1
-    elsif params[:quantity_change] == "decrease"
-      @cart.contents[params[:item_id]] -= 1
-    end
+    item = Item.find(params[:item_id])
+    @cart.change_quantity(item.id, params[:quantity_change])
     redirect_to cart_path(@cart)
   end
 end

@@ -1,4 +1,4 @@
-<h2 class="cart-title">Items in your Cart</h2>
+</br></br></br><h2 class="cart-title">Items in your Cart</h2>
   <div class="cart-item attribute-name">
     <span class="cart-attribute">Name</span>
     <span class="cart-attribute">Price</span>
@@ -10,9 +10,9 @@
       <span class="cart-attribute"><%= item[0].title %></span>
       <span class="cart-attribute"><%= number_to_currency(item[0].price) %></span>
       <span class="cart-attribute"><%= item[1] %></span>
-      <%= link_to "+", cart_path(@cart, item_id: item[0].id, quantity_change: "increase"), method: "patch", class: "btn btn-success" %>
-      <%= link_to "-", cart_path(@cart, item_id: item[0].id, quantity_change: "decrease"), method: "patch", class: "btn btn-info" %>
-      <%= link_to "Remove", cart_path(@cart, item_id: item[0].id), method: "delete", class: "btn btn-danger" %>
+      <%= link_to "+", cart_path(item_id: item[0].id, quantity_change: "increase"), method: "patch", class: "btn btn-success" %>
+      <%= link_to "-", cart_path(item_id: item[0].id, quantity_change: "decrease"), method: "patch", class: "btn btn-info" %>
+      <%= link_to "Remove", carts_path(item_id: item[0].id), method: "delete", class: "btn btn-danger" %>
     </div>
   </div>
   <% end %>
