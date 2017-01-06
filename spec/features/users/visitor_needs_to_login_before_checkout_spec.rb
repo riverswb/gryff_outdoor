@@ -40,9 +40,25 @@ RSpec.feature "When a vistor visits cart page" do
     expect(page).to have_content items[0].price
   end
 
-  # scenario "they can logout" do
+  scenario "they can logout" do
+    click_on "View Cart"
+    click_on "Login or Create Account to Checkout"
+    click_on "Create Account"
 
-  # end
+    fill_in "user[first_name]", :with => "David"
+    fill_in "user[last_name]", :with => "Knott"
+    fill_in "user[email]", :with => "david@gmail.com"
+    fill_in "user[password]", :with => "1234"
+    fill_in "user[password_confirmation]", :with => "1234"
+
+    click_on "Create Account"
+    click_on "View Cart"
+
+    click_on "Logout"
+    
+    expect(page).to have_link "Login"
+    expect(page).to_not have_link "Logout"
+  end
 
 
 end
