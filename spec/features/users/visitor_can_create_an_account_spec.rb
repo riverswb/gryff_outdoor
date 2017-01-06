@@ -6,11 +6,11 @@ RSpec.feature "When a visitor visits login page" do
 
     click_on "Create Account"
 
-    #fill_in "First name", :with => "David"
-    fill_in "Last name", :with => "Knott"
-    fill_in "Email", :with => "david@gmail.com"
-    fill_in "Password", :with => "1234"
-    fill_in "Password confirmation", :with => "1234"
+    fill_in "user[first_name]", :with => "David"
+    fill_in "user[last_name]", :with => "Knott"
+    fill_in "user[email]", :with => "david@gmail.com"
+    fill_in "user[password]", :with => "1234"
+    fill_in "user[password_confirmation]", :with => "1234"
 
     click_on "Create Account"
 
