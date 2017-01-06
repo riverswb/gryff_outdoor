@@ -30,7 +30,7 @@
       </div>
 		</div>
   </div>
-</nav></br>
+</nav>
     <% flash.each do |type, message| %>
       <%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
     <% end %>
