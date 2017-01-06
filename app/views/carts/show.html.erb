@@ -10,6 +10,8 @@
       <span class="cart-attribute"><%= item[0].title %></span>
       <span class="cart-attribute"><%= number_to_currency(item[0].price) %></span>
       <span class="cart-attribute"><%= item[1] %></span>
+      <%= link_to "+", cart_path(@cart, item_id: item[0].id, quantity_change: "increase"), method: "patch", class: "btn btn-success" %>
+      <%= link_to "-", cart_path(@cart, item_id: item[0].id, quantity_change: "decrease"), method: "patch", class: "btn btn-info" %>
       <%= link_to "Remove", cart_path(@cart, item_id: item[0].id), method: "delete", class: "btn btn-danger" %>
     </div>
   </div>
