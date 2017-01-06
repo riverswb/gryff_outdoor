@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "When a user visits root path" do
-  scenario "they can login" do
+  scenario "they can see login page" do
     visit "/"
 
     expect(page).to have_link "Login"
