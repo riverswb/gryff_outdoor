@@ -25,7 +25,6 @@ RSpec.feature 'Visitor can adjust the quantity of an item in the cart', type: :f
 
       click_on "+"
 
-      # expect(current_path).to eq(cart_path(@cart))
-      expect(page).to have_content("Total Cost: #{item.price * 2}")
+      expect(page).to have_content("Total Cost: $#{item.price *= 2}")
     end
 end

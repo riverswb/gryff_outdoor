@@ -26,6 +26,7 @@ class CartsController < ApplicationController
   end
 
   def update
+    @cart.contents[params[:item_id]] += 1
     redirect_to cart_path(@cart)
   end
 end
