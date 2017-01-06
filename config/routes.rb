@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   get '/dashboard', to: "users#show"
   get '/login', to: "sessions#new"
+  get '/logout', to: "sessions#destroy"
   get '*category' => 'categories#index'
 end

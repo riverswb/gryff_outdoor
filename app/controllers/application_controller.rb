@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
 
   def login_status
     if session[:user]
-      @login_status = "Login"
-      @login_path = login_path
-    else
       @login_status = "Logout"
       @login_path = logout_path
+    else
+      @login_status = "Login"
+      @login_path = login_path
     end
   end
 end
