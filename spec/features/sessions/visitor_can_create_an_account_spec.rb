@@ -10,8 +10,8 @@ RSpec.feature "When a user visits root path" do
 
     expect(current_path).to eq "/login"
 
-    fill_in "user[:username]", :with => "David"
-    fill_in "user[:password]", :with => "123"
+    fill_in "Email", :with => "david@gmail.com"
+    fill_in "Password", :with => "123"
 
     expect(page).to have_link "Create Account"
   end
