@@ -1,0 +1,16 @@
+<h1>Login</h1>
+<div class="form_inline">
+  <%= form_tag @sessions_path do %>
+    <div class="form-group">
+      <%= label_tag :email, nil, class:"control-label" %>
+      <%= text_field_tag :email, nil, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :password, nil, class:"control-label" %>
+      <%= password_tag :password, nil, class:"form-control" %>
+    </div>
+
+    <%= submit_tag "login", class:"btn btn-primary" %>
+  
+  <% end %>
+</div>
