@@ -25,5 +25,7 @@ class CartsController < ApplicationController
     redirect_to cart_path(@cart)
   end
 
-
+  def update
+    redirect_to cart_path(@cart)
+  end
 end
