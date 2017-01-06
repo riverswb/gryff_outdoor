@@ -8,6 +8,5 @@ Rails.application.routes.draw do
   get '/login', to: "sessions#new"
   get '/logout', to: "sessions#destroy"
   get '*category' => 'categories#index'
-  get '/' => 'landing#index'
   patch '/carts/:id' => 'carts#update'
 end
