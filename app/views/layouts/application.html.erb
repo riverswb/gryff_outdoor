@@ -31,8 +31,8 @@
 		</div>
   </div>
 </nav>
-    <% flash.each do |type, message| %>
-      <%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
+      <% flash.each do |type, message| %>
+        </br></br></br></br><%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
     <% end %>
 
     <%= yield %>
