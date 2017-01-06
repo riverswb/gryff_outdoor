@@ -2,14 +2,13 @@ require 'rails_helper'
 
 RSpec.feature "When a vistor visits cart page" do
 
-  attr_reader :item
+  attr_reader :items
 
-  before(:all) do
+  before(:each) do
     @items = create_list(:item, 10)
     visit item_path(items[0])
     click_button "Add Item"
     click_button "Add Item"
-    click_on "View Cart"
   end
 
   scenario "they need to login or create an account" do
