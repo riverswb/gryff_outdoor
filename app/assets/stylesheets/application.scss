@@ -16,6 +16,11 @@
   background-size: cover;
 }
 
+body {
+  background-image: image-url("page_background.jpg");
+  background-attachment: fixed;  
+}
+
 .hiking {
   background-image: image-url("hiking_div.jpg");
   height: 300px;
@@ -29,13 +34,6 @@
 .climbing {
   background-image: image-url("climbing_div.jpg");
   height: 300px;    
-}
-
-#pun {
-  font-family: "Reenie Beanie";
-  font-size: 3em;
-  margin-left: 20px;
-  margin-top: -28px;
 }
 
 #title {
@@ -68,6 +66,15 @@
   font-weight: 600;
 }
 
+a {
+  color: #3D3A31;
+}
+
+a:hover {
+  color: #891516;
+  text-decoration: none;
+}
+
 .description {
   font-family: "Reenie Beanie";
   font-size: 3em;
@@ -86,18 +93,71 @@
   margin-left: -20px;
 }
 
-nav.navbar-findcond { height: 30px; }
-nav.navbar-findcond { background: #fff; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; }
-nav.navbar-findcond a { color: #AB4F26; }
-nav.navbar-findcond ul.navbar-nav a { font-family: 'Cabin'; color: #AB4F26; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
+nav.navbar-findcond { 
+  height: 30px;
+}
+
+nav.navbar-findcond {
+  background: #D5DFEB; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc;
+}
+
+nav.navbar-findcond a {
+  color: #891516;
+}
+
+nav.navbar-findcond ul.navbar-nav a {
+  font-family: 'Cabin Sketch'; color: #891516; border-style: solid; border-width: 0 0 2px 0; border-color: #D5DFEB;
+}
+
 nav.navbar-findcond ul.navbar-nav a:hover,
 nav.navbar-findcond ul.navbar-nav a:visited,
 nav.navbar-findcond ul.navbar-nav a:focus,
-nav.navbar-findcond ul.navbar-nav a:active { background: #fff; }
-nav.navbar-findcond ul.navbar-nav a:hover { border-color: #AB4F26; }
-nav.navbar-findcond li.divider { background: #ccc; }
-nav.navbar-findcond button.navbar-toggle { background: #AB4F26; border-radius: 2px; }
-nav.navbar-findcond button.navbar-toggle:hover { background: #999; }
-nav.navbar-findcond button.navbar-toggle > span.icon-bar { background: #fff; }
-nav.navbar-findcond span.badge { background: #AB4F26; font-weight: normal; font-size: 11px; }
-nav.navbar-findcond span.badge.new { background: rgba(255, 0, 0, 0.8); color: #fff; }
+nav.navbar-findcond ul.navbar-nav a:active {
+  background: #D5DFEB;
+}
+
+nav.navbar-findcond ul.navbar-nav a:hover {
+  border-color: #891516;
+}
+
+nav.navbar-findcond li.divider {
+  background: #ccc;
+}
+
+nav.navbar-findcond button.navbar-toggle {
+  background: #891516; border-radius: 2px;
+}
+
+nav.navbar-findcond button.navbar-toggle:hover {
+  background: #999;
+}
+
+nav.navbar-findcond button.navbar-toggle > span.icon-bar {
+  background: #D5DFEB;
+}
+
+nav.navbar-findcond span.badge {
+  background: #891516; font-weight: normal; font-size: 11px;
+}
+
+nav.navbar-findcond span.badge.new {
+  background: rgba(255, 0, 0, 0.8); color: #D5DFEB;
+}
+
+.break {
+  background-color: #D5DFEB;
+}
+
+#item-name {
+  font-family: "Cabin Sketch";
+  font-size: 1.5em;
+}
+
+#item-description {
+  font-family: "Reenie Beanie";
+  font-size: 1.5em;
+}
+
+.cart-button {
+  float: right;
+}
