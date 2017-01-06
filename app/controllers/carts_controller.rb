@@ -5,6 +5,8 @@ class CartsController < ApplicationController
     @items = @cart.contents.map do |item, quantity|
       [Item.find(item), quantity]
     end
+    @checkout_msg = "Login or Create Account to Checkout"
+    @checkout_msg = "Checkout" if session[:user]
     @total_cost = @cart.total_cost
   end
 
