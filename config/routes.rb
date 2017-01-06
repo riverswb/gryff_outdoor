@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   get '*category' => 'categories#index'
   get '/' => 'landing#index'
   patch '/carts/:id' => 'carts#update'
-
 end
