@@ -7,7 +7,6 @@ class CartsController < ApplicationController
     end
     @checkout_msg = "Login or Create Account to Checkout"
     @checkout_msg = "Checkout" if session[:user]
-    
     @total_cost = @cart.total_cost
   end
 
