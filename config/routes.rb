@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   get '/login', to: "sessions#new"
   get '/logout', to: "sessions#destroy"
-  get '*category' => 'categories#index'
+  get '/:category' => 'categories#index'
+  patch '/carts/:id' => 'carts#update'
 end
