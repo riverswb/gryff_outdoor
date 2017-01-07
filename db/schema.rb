@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170106175054) do
   end
 
   create_table "order_items", force: :cascade do |t|
+    t.integer "quantity"
     t.integer "item_id"
     t.integer "order_id"
     t.index ["item_id"], name: "index_order_items_on_item_id", using: :btree
