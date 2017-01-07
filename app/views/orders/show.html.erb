@@ -1,0 +1,9 @@
+<h2>Your Order from <%= @order.created_at %></h2>
+<div class="order-info">
+  <p>Status: <%= @order.status %> Total Price: <%= @order.total_price %>
+</div>
+<% @order.items.each do |item| %>
+  <div class="panel panel-default">
+    <%= link_to item.title, item_path(item) %>
+  </div>
+<% end %>

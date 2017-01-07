@@ -1,5 +1,5 @@
 <h2>All Orders</h2>
-<%= @orders.each do |order| %>
+<% @orders.each do |order| %>
   <div class="panel penel-default">
     <p>Order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
   </div>
