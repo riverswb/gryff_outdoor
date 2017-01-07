@@ -12,7 +12,8 @@ RSpec.feature 'Visitor is required to login to account before checkout', type: :
 
     fill_in 'email', with: user.email
     fill_in 'password', with: user.password
-    click_on 'Login'
+
+    click_button 'Login'
 
     click_on 'View Cart'
 
