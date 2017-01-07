@@ -29,9 +29,8 @@ RSpec.feature "When a users visits orders path" do
 
     visit orders_path
 
-    expect(page).to have_content "Order 1"
-    expect(page).to have_content "Order 1"
-    expect(page).to_no have_content "Order 3"
+    expect(page).to have_content "Shipped"
+    expect(page).to_no have_content "Proccessing"
     expect(page).to have_content "1 item"
     expect(page).to have_content "2 items"
     expect(page).to have_content total_price

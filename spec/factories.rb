@@ -11,6 +11,11 @@ FactoryGirl.define do
     category
   end
 
+  factory :order do
+    status { [:shipped, :proccessing].sample }
+    user
+  end
+
   factory :user do
     first_name "David"
     last_name "Knott"
@@ -19,6 +24,12 @@ FactoryGirl.define do
     end
     password "123"
     password_confirmation "123"
+
+    factory :user_with_orders do
+      after(:create) do |user|
+        create_list(:order, 10, user: user)
+      end
+    end
   end
 
 end
