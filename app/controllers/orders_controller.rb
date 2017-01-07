@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   end
 
   def index
-    byebug
     @user = User.find(session[:user])
     @orders = @user.orders
   end
