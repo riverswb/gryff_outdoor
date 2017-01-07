@@ -11,7 +11,6 @@ RSpec.feature "When a use visits order show page" do
   scenario "they can see each item in that order with subtotals" do
     user = create(:user_with_orders)
     order  = user.orders.first
-    order.status = "completed"
     items = order.items
     total_price = order.total_price
     visit login_path
@@ -24,12 +23,12 @@ RSpec.feature "When a use visits order show page" do
     visit orders_path
 
     click_on "See Details", {match: :first}
-    byebug
+
     expect(page).to have_link items[0].title
     expect(page).to have_content "Your Order from #{order.created_at}"
     expect(page).to have_content order.status
     expect(page).to have_content total_price
-    expect(page).to have_content "#{}"
+    expect(page).to have_content "Completed at"
     
 
   end

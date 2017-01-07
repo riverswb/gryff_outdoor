@@ -12,7 +12,8 @@ FactoryGirl.define do
   end
 
   factory :order do
-    status { [:ordered, :paid, :cancelled, :completed].sample }
+    status "completed"
+    #status { [:ordered, :paid, :cancelled, :completed].sample }
     user
     items {[FactoryGirl.create(:item)]}
   end
