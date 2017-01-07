@@ -34,4 +34,10 @@ FactoryGirl.define do
     end
   end
 
+  factory :order_item do
+    item      FactoryGirl.create(:item)
+    order     FactoryGirl.create(:order)
+    quantity  2
+  end
+
 end
