@@ -14,6 +14,7 @@ FactoryGirl.define do
   factory :order do
     status { [:shipped, :proccessing].sample }
     user
+    items {[FactoryGirl.create(:item)]}
   end
 
   factory :user do

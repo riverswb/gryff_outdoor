@@ -1,6 +1,6 @@
 <h2>All Orders</h2>
 <%= @orders.each do |order| %>
   <div class="panel penel-default">
-    <p><%= order.status %> <%= pluralize(order.count) %> <%= order.total_price %></p>
+    <p><%= order.status %> <%= pluralize(order.count, 'item') %> <%= order.total_price %></p>
   </div>
 <% end %>

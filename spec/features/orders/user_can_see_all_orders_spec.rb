@@ -7,19 +7,23 @@ RSpec.feature "When a users visits orders path" do
   before(:all) do
     @items = create_list(:item, 10)
   end
+
   scenario "they see all orders belonging to them" do
     user = create(:user_with_orders)
+    user.orders.first.items
+    total_price = user.orders.first.total_price
     visit login_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
-    click_on "Login"
+    within ".form_inline" do
+      click_on "Login"
+    end
 
     visit orders_path
 
-    expect(page).to have_content "Shipped"
-    expect(page).to_no have_content "Proccessing"
+    expect(page).to have_content "shipped"
+    expect(page).to have_content "proccessing"
     expect(page).to have_content "1 item"
-    expect(page).to have_content "2 items"
     expect(page).to have_content total_price
   end
 end

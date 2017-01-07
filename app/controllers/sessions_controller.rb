@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email params[:email])
+    user = User.find_by(email: params[:email])
     if user.authenticate(params[:password])
       session[:user] = user.id
       session[:message] = "Logged in as #{user.first_name} #{user.last_name}"

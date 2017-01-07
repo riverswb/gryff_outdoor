@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   def index
     @user = User.find(session[:user])
-    @orders = User.orders
+    @orders = @user.orders
   end
 
 end
