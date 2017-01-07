@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
 
   factory :order do
-    status { [:shipped, :proccessing].sample }
+    status { [:ordered, :paid, :cancelled, :completed].sample }
     user
     items {[FactoryGirl.create(:item)]}
   end
@@ -28,7 +28,7 @@ FactoryGirl.define do
 
     factory :user_with_orders do
       after(:create) do |user|
-        create_list(:order, 1, user: user)
+        create_list(:order, 10, user: user)
       end
     end
   end
