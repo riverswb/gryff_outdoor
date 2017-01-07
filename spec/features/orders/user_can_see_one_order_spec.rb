@@ -1,17 +1,16 @@
 require 'rails_helper'
 
-RSpec.feature "When a users visits orders path" do
+RSpec.feature "When a use visits order show page" do
 
   attr_reader :items
 
   before(:all) do
     @items = create_list(:item, 10)
   end
-
-  scenario "they see all orders belonging to them" do
+  
+  scenario "they can see each item in that order with subtotals" do
     user = create(:user_with_orders)
     user.orders.first.items
-    total_price = user.orders.first.total_price
     visit login_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
@@ -20,9 +19,5 @@ RSpec.feature "When a users visits orders path" do
     end
 
     visit orders_path
-
-    expect(page).to have_content user.orders.first.status
-    expect(page).to have_content "1 item"
-    expect(page).to have_content total_price
   end
 end

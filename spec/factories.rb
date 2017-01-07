@@ -28,7 +28,7 @@ FactoryGirl.define do
 
     factory :user_with_orders do
       after(:create) do |user|
-        create_list(:order, 10, user: user)
+        create_list(:order, 1, user: user)
       end
     end
   end
