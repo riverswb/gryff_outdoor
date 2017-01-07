@@ -11,8 +11,8 @@ RSpec.feature "When a users visits orders path" do
 
     user = create(:user)
     visit login_path
-    fill_in "Email", :with => user.Email
-    fill_in "Password", :with => user.Password
+    fill_in "Email", :with => user.email
+    fill_in "Password", :with => user.password
 
     visit item_path(items[0])
     click_button "Add Item"
@@ -23,11 +23,11 @@ RSpec.feature "When a users visits orders path" do
     visit item_path(items[1])
     click_button "Add Item"
     click_button "Add Item"
-    total_price = items[1] + items[1]
+    total_price = items[1].price + items[1].price
     click_on "View Cart"
     click_on "Checkout"
 
-    visit order_path
+    visit orders_path
 
     expect(page).to have_content "Order 1"
     expect(page).to have_content "Order 1"
