@@ -11,4 +11,8 @@ class OrdersController < ApplicationController
     @orders = @user.orders
   end
 
+  def create
+byebug
+  end
+
 end
