@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20170107045205) do
   create_table "orders", force: :cascade do |t|
     t.string  "status"
     t.integer "user_id"
+    t.date    "updated_at", null: false
+    t.date    "created_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 

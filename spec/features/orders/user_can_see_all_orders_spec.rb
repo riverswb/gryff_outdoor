@@ -21,9 +21,7 @@ RSpec.feature "When a users visits orders path" do
 
     visit orders_path
 
-    expect(page).to have_content orders.first.status
-    expect(page).to have_content orders.last.status
     expect(page).to have_content "1 item"
-    expect(page).to have_content total_price
+    expect(page).to have_content "Order from #{order.created_at}"
   end
 end

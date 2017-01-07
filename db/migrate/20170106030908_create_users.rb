@@ -5,9 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :last_name
       t.string :email
       t.string :password_digest
-      t.datetime "updated_at",        null: false
-      t.datetime "created_at",        null: false
-      t.integer "role",               default: 0
+      t.datetime :updated_at,        null: false
+      t.datetime :created_at,        null: false
+      t.integer :role,               default: 0
     end
     add_index :users, :email, unique: true
   end
