@@ -19,11 +19,9 @@ FactoryGirl.define do
   end
 
   factory :user do
-    first_name "David"
-    last_name "Knott"
-    sequence :email do |n|
-      "david#{n.to_s}@gmail.com"
-    end
+    first_name {Faker::Name.first_name}
+    last_name {Faker::Name.last_name}
+    email {Faker::Internet.email}
     password "123"
     password_confirmation "123"
 
@@ -32,5 +30,11 @@ FactoryGirl.define do
         create_list(:order, 10, user: user)
       end
     end
+  end
+
+  factory :order_item do
+    item      FactoryGirl.create(:item)
+    order     FactoryGirl.create(:order)
+    quantity  2
   end
 end
