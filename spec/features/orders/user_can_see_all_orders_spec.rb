@@ -8,24 +8,11 @@ RSpec.feature "When a users visits orders path" do
     @items = create_list(:item, 10)
   end
   scenario "they see all orders belonging to them" do
-
-    user = create(:user)
+    user = create(:user_with_orders)
     visit login_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
-
-    visit item_path(items[0])
-    click_button "Add Item"
-
-    click_on "View Cart"
-    click_on "Checkout"
-
-    visit item_path(items[1])
-    click_button "Add Item"
-    click_button "Add Item"
-    total_price = items[1].price + items[1].price
-    click_on "View Cart"
-    click_on "Checkout"
+    click_on "Login"
 
     visit orders_path
 

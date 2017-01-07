@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    @user = User.find(session[:user])
+    @orders = User.orders
   end
 
 end
