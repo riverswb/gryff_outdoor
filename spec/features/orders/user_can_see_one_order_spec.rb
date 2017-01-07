@@ -22,7 +22,7 @@ RSpec.feature "When a use visits order show page" do
 
     visit orders_path
 
-    click_on "See Order Details"
+    click_on "See Details", {match: :first}
 
     expect(page).to have_link item_path(items[0])
     expect(page).to have_link item_path(items[7])
