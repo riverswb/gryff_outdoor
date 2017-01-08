@@ -21,7 +21,6 @@ class CartsController < ApplicationController
   def path?
     if session[:user]
       "/order_create"
-      # orders_path method: "POST"
     else
       login_path
     end
