@@ -1,9 +1,4 @@
-class Admin::OrdersController < ApplicationController
-  before_action :require_admin
-
-  def require_admin
-    render file: "/public/404" unless current_admin?
-  end
+class Admin::OrdersController < Admin::BaseController
 
 
   def all_orders
