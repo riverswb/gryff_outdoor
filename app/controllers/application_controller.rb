@@ -4,13 +4,18 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def current_user
+    @current_user ||= User.find(session[:user]) if session[:user]
+  end
+
+  def current_admin?
+    current_user && current_user.admin?
+  end
+
   def set_cart
     @cart = Cart.new(session[:cart])
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user]) if session[:user]
-  end
 
   def login_status
     if session[:user]
