@@ -11,3 +11,6 @@ category_3 = Category.create(name: 'climbing')
     category:    [category_1, category_2, category_3].sample
   )
 end
+
+User.create(first_name: "Harry", last_name: "Potter", email: "harry@potter.com",
+            password: "a", password_confirmation: "a", role: 1)
