@@ -4,15 +4,16 @@ RSpec.feature 'When an admin views items index' do
   scenario 'admin clicks on view items from admin dashboard' do
     items_active = create_list(:item, 10)
     inactive_item = create(:item, status: 1)
-    items = items_active + inactive_item
+    items = items_active << inactive_item
 
     user = create(:user, role: 1)
     visit login_path
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
-    click_on "Login"
+    click_button "Login"
 
     expect(current_path).to eq(admin_dashboard_path)
+
 
     click_on "View Items"
 
