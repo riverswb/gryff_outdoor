@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :carts, only: [:create]
   resources :users, only: [:new, :create]
-  namespace :admin
-    resources :orders, only: [:index, :show]
+  namespace :admin do
+    get '/all_orders', to: "orders#all_orders"
   end
+  resources :orders, only: [:index, :show]
   get '/order_create', to: "orders#create"
   get '/dashboard', to: "users#show"
   post '/login', to: "sessions#create"
