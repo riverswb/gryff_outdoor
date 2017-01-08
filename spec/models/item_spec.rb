@@ -32,4 +32,23 @@ RSpec.describe Item, type: :model do
       end
     end
   end
+  describe 'status' do
+    it "has a status" do
+      item = create(:item)
+
+      expect(item).to respond_to(:status)  
+    end
+
+    it "defaults to 'active'" do
+      item = create(:item)
+
+      expect(item.status).to eq("active")
+    end
+
+    it "can be set to 'retired'" do
+      item = create(:item, status: 1)
+
+      expect(item.status).to eq("retired")
+    end
+  end
 end

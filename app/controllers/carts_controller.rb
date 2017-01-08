@@ -5,9 +5,25 @@ class CartsController < ApplicationController
     @items = @cart.contents.map do |item, quantity|
       [Item.find(item), quantity]
     end
-    @checkout_msg = "Login or Create Account to Checkout"
-    @checkout_msg = "Checkout" if session[:user]
+    @checkout_msg = message?
+    @checkout_path = path?
     @total_cost = @cart.total_cost
+  end
+
+  def message?
+    if session[:user]
+      "Checkout"
+    else
+      "Login or Create Account to Checkout"
+    end
+  end
+
+  def path?
+    if session[:user]
+      'order_create' # method: "POST"
+    else
+      login_path
+    end
   end
 
   def create
@@ -28,11 +44,8 @@ class CartsController < ApplicationController
   end
 
   def update
-    if params[:quantity_change] == "increase"
-      @cart.contents[params[:item_id]] += 1
-    elsif params[:quantity_change] == "decrease"
-      @cart.contents[params[:item_id]] -= 1
-    end
+    item = Item.find(params[:item_id])
+    @cart.change_quantity(item.id, params[:quantity_change])
     redirect_to cart_path(@cart)
   end
 end
