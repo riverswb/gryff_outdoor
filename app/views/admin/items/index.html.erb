@@ -1,0 +1,12 @@
+<h1>Admin Items View</h1>
+
+<% @items.each do |item| %>
+  <ul>
+    <li>
+    <%= item.image %>
+    <%= item.title %>
+    <%= item.description %>
+    <%= item.status %>
+  </li>
+  </ul>
+<% end %>

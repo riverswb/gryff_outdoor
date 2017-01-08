@@ -14,9 +14,8 @@ RSpec.feature 'When an admin views items index' do
 
     expect(current_path).to eq(admin_dashboard_path)
 
-
     click_on "View Items"
-
+    save_and_open_page
      expect(current_path).to eq(admin_items_path)
      expect(page).to have_content(items_active.first.image)
      expect(page).to have_content(items_active.last.image)
