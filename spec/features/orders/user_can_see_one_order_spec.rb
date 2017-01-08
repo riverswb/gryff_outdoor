@@ -7,7 +7,7 @@ RSpec.feature "When a use visits order show page" do
   before(:all) do
     @items = create_list(:item, 10)
   end
-  
+
   scenario "they can see each item in that order with subtotals" do
     user = create(:user_with_orders)
     order  = user.orders.first
