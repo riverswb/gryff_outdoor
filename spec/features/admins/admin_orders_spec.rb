@@ -13,7 +13,7 @@ RSpec.feature "When an admin visits all orders page" do
     it "default user does not see admin all orders" do
       user = create(:user)
 
-      allow_any_instance_of(ApplicationController)to receive(:current_user).and_return(:admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:admin)
       visit admin_all_orders_path
       expect(page).to_not have_content "All Orders"
       expect(page).to have_content "The page you were looking for doesn't exist"
