@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
       item = Item.find(item_id.to_i)
       add_item(@order, item, quantity)
     end
+    flash[:success] = "Order was successfully placed"
     redirect_to orders_path
   end
 
