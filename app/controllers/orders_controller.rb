@@ -12,7 +12,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-byebug
+    byebug
+    @user = User.find(session[:user])
+    items = session[:cart]
+    items.each do |item, quantity|
+      @user.orders.create(item: Item.find(item.to_i), quantity: quantity)
+    end
+
+    redirect_to orders_path
   end
 
 end

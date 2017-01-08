@@ -7,6 +7,8 @@ RSpec.feature 'Visitor is required to login to account before checkout', type: :
     item = create(:item)
 
     visit item_path(item)
+    click_on "Add Item"
+    click_on "Add Item"
     click_on "View Cart"
     click_on "Login or Create Account to Checkout"
 
