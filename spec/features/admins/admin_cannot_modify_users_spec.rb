@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpe.feature 'Admins cannot edit users data' do
+RSpec.feature 'Admins cannot edit users data' do
   scenario 'as a logged in admin' do
     user = create(:user)
     admin = create(:user, role: 1)
@@ -12,6 +12,7 @@ RSpe.feature 'Admins cannot edit users data' do
     click_button "Login"
 
     visit user_path(admin)
+    save_and_open_page
     click_on "Edit"
 
     fill_in "email", with: "test@test.com"
