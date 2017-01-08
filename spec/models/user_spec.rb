@@ -9,7 +9,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:password_confirmation)}
     it { is_expected.to validate_uniqueness_of(:email)}
   end
-  descrive "admin functionality" do
+
+  describe "admin functionality" do
     it "user can be created as an admin" do
       user = User.create(email: "quidditchstar6969@gryffoutdoor.com",
                         password: "slytherinsuxx",
@@ -21,10 +22,11 @@ RSpec.describe User, type: :model do
 
     it "user can be created as a default user" do
       user = User.create(email: "draco@slytheroutdoor.com",
-                        password: "pass"
+                        password: "pass",
                         role: 0)
 
       expect(user.role).to eq("default")
       expect(user.default?).to be_truthy
     end
+  end
 end
