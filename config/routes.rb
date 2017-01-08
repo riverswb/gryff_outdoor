@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :carts, only: [:create]
   resources :users, only: [:new, :create]
   namespace :admin do
-    get '/all_orders', to: "orders#all_orders"
+    get '/dashboard', to: "orders#dashboard"
   end
   resources :orders, only: [:index, :show]
   get '/order_create', to: "orders#create"

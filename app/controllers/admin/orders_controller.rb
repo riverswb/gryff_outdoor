@@ -1,7 +1,7 @@
 class Admin::OrdersController < Admin::BaseController
 
 
-  def all_orders
-
+  def dashboard
+    @orders = Order.all
   end
 end
