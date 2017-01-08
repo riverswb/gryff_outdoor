@@ -3,10 +3,11 @@
 <% @items.each do |item| %>
   <ul>
     <li>
-    <%= item.image %>
-    <%= item.title %>
+    <img src="<%= item.image %>" class="img-thumbnail" alt="Responsive thunbnail" />
+    <%= link_to item.title, item_path(item) %>
     <%= item.description %>
     <%= item.status %>
+    <%= link_to "Edit", admin_item_path(item) %>
   </li>
   </ul>
 <% end %>

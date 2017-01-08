@@ -17,13 +17,10 @@ RSpec.feature 'When an admin views items index' do
     click_on "View Items"
     save_and_open_page
      expect(current_path).to eq(admin_items_path)
-     expect(page).to have_content(items_active.first.image)
-     expect(page).to have_content(items_active.last.image)
-     expect(page).to have_content(inactive_item.image)
 
-     expect(page).to have_content(items_active.first.title)
-     expect(page).to have_content(items_active.last.title)
-     expect(page).to have_content(inactive_item.title)
+     expect(page).to have_link(items_active.first.title)
+     expect(page).to have_link(items_active.last.title)
+     expect(page).to have_link(inactive_item.title)
 
      expect(page).to have_content(items_active.first.description)
      expect(page).to have_content(items_active.last.description)
