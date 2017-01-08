@@ -21,7 +21,7 @@ RSpec.feature "When a users visits orders path" do
 
     visit orders_path
 
-    expect(page).to have_content "1 item"
+    expect(page).to have_content "5 items"
     expect(page).to have_content "Order from #{orders.first.created_at}"
   end
 end
