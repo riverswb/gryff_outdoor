@@ -20,7 +20,7 @@ class CartsController < ApplicationController
 
   def path?
     if session[:user]
-      'order_create' # method: "POST"
+      "/order_create"
     else
       login_path
     end
