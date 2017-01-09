@@ -11,12 +11,16 @@ class AddressesController < ApplicationController
       flash[:success] = "You successfully added an address to your account."
       redirect_to dashboard_path
     else
-      flash[:alert] = "Error! Make sure you filled in all the fields correctly."
+      flash[:danger] = "Error! Make sure you filled in all the fields correctly."
       redirect_to new_user_address_path(@user)
     end
   end
 
   def destroy
+    address = Address.find(params[:id])
+    address.destroy
+    flash[:deleted] = "That address is GONE. Forever." 
+    redirect_to dashboard_path
   end
 
 private
