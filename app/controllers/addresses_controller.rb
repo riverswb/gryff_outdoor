@@ -12,7 +12,7 @@ class AddressesController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:alert] = "Error! Make sure you filled in all the fields correctly."
-      render :new
+      redirect_to new_user_address_path(@user)
     end
   end
 
