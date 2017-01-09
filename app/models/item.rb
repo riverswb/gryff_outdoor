@@ -8,4 +8,9 @@ class Item < ApplicationRecord
 
   enum status: [:active, :retired]
 
+  def self.item_list(cart_items)
+    cart_items.map do |item, quantity|
+      [find(item), quantity]
+    end
+  end
 end
