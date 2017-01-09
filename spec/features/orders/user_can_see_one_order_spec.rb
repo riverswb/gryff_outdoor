@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "When a user visits order show page" do
-
+RSpec.feature "When a use visits order show page" do
+  
   scenario "they can see each item in that order with subtotals" do
     user = create(:user_with_orders)
     order  = user.orders.first
@@ -17,8 +17,7 @@ RSpec.feature "When a user visits order show page" do
 
     visit orders_path
 
-    click_on all.last
-    # save_and_open_page
+    click_on "See Details", {match: :first}
 
     expect(page).to have_link items[0].title
     expect(page).to have_content "Quantity: #{order.order_items.last.quantity}"
