@@ -1,0 +1,19 @@
+</br></br></br><%= form_for [@user, @address] do |f| %>
+
+<%= f.label :street_address, "Street Address" %>
+<%= f.text_field :street_address %>
+
+<%= f.label :secondary_address, "Secondary Address" %>
+<%= f.text_field :secondary_address %>
+
+<%= f.label :city, "City" %>
+<%= f.text_field :city %>
+
+<%= f.label :state_abbr, "State (Abbreviation)" %>
+<%= f.text_field :state_abbr %>
+
+<%= f.label :zip_code, "Zip Code" %>
+<%= f.text_field :zip_code %>
+
+<%= f.submit "Add Address" %>
+<% end  %>

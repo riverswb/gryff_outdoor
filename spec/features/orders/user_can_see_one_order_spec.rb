@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.feature "When a use visits order show page" do
 
-  attr_reader :items
-
   scenario "they can see each item in that order with subtotals" do
     user = create(:user_with_orders)
     order  = user.orders.fir

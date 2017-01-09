@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user])
+    @addresses = @user.addresses
   end
 
   private
