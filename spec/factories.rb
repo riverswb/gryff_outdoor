@@ -34,7 +34,12 @@ FactoryGirl.define do
     email {Faker::Internet.email}
     password "123"
     password_confirmation "123"
-    #addresses {create(:address)}
+
+    factory :user_with_addresses do
+      after(:create) do |user|
+        create_list(:address, 2, user: user)
+      end
+    end
 
     factory :user_with_orders do
       after(:create) do |user|
