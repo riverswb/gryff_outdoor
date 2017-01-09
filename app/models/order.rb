@@ -1,7 +1,9 @@
 class Order < ApplicationRecord
-belongs_to :user
-has_many :order_items
-has_many :items, through: :order_items
+  belongs_to :user
+  has_many :order_items
+  has_many :items, through: :order_items
+
+  enum status: %w(ordered paid completed)
 
   def count
     self.items.count
