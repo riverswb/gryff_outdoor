@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "When a use visits order show page" do
+RSpec.feature "When a user visits order show page" do
 
   attr_reader :items
 
@@ -25,7 +25,7 @@ RSpec.feature "When a use visits order show page" do
 
     click_on "See Details", {match: :first}
 
-    expect(page).to have_link items[0].title
+    expect(page).to have_link items[1].title
     expect(page).to have_content "Quantity: #{order.order_items.last.quantity}"
     expect(page).to have_content "Your Order from #{order.created_at}"
     expect(page).to have_content order.status
