@@ -37,6 +37,14 @@ RSpec.describe Order, type: :model do
       expect(order.canceled_or_completed).to eq "Cancelled at #{order.updated_at}"
     end
 
+    it "can make an order" do
+      items = create_list(:item, 10)
+      expect(order.count).to eq 5
+      Order.make_order(order, {items[0].id.to_s => 2, items[1].id.to_s => 1})
+    
+      expect(order.count).to eq 8
+    end
+
 
 
   end
