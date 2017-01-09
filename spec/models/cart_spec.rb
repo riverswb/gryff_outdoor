@@ -15,14 +15,14 @@ RSpec.describe Cart, type: :model do
   end
 
   it "can add items to cart" do
-    cart.add_item(items[0].id.to_s)
-    cart.add_item(items[1].id.to_s)
+    cart.add_item(items[0].id)
+    cart.add_item(items[1].id)
     
     expect(cart.contents).to eq({items[0].id.to_s => 2, items[1].id.to_s => 1})
   end
 
   it "can return how many of a particular item is has" do
-    cart.add_item(items[0].id.to_s)
+    cart.add_item(items[0].id)
 
     expect(cart.count_of(items[0].id)).to eq 2
   end
@@ -45,9 +45,19 @@ RSpec.describe Cart, type: :model do
   end
 
   it "can reduce the quanity of a specific item by one" do
-    cart.add_item(items[0].id.to_s)
+    cart.add_item(items[0].id)
     cart.remove(items[0].id)
 
+    expect(cart.contents).to eq({items[0].id.to_s => 1})
+  end
+
+  it "can tell weither to increase or deacrease the quantity" do
+    cart.change_quantity(items[0].id, "increase")
+
+    expect(cart.contents).to eq({items[0].id.to_s => 2})
+
+    cart.change_quantity(items[0].id, "decrease")
+    
     expect(cart.contents).to eq({items[0].id.to_s => 1})
   end
 end
