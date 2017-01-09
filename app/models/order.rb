@@ -24,6 +24,12 @@ class Order < ApplicationRecord
     end
   end
 
+  def self.make_order(order, items)
+    items.each do |item_id, quantity|
+      order.add_item(item_id, quantity)
+    end
+  end
+
   def add_item(item_id, quantity)
     item = Item.find(item_id.to_i)
     quantity.times do
