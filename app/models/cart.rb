@@ -34,14 +34,5 @@ class Cart
     end
   end
 
-  def self.message?(user)
-    return "Checkout" if user
-    "Login or Create Account to Checkout"
-  end
-
-  def self.path?(user)
-    return "/order_create" if user
-    Rails.application.routes.url_helpers.login_path
-  end
 
 end

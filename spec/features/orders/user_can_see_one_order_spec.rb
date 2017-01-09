@@ -4,13 +4,9 @@ RSpec.feature "When a use visits order show page" do
 
   attr_reader :items
 
-  before(:all) do
-    @items = create_list(:item, 10)
-  end
-
   scenario "they can see each item in that order with subtotals" do
     user = create(:user_with_orders)
-    order  = user.orders.first
+    order  = user.orders.fir
     items = order.items
     create(:order_item, item: items.first, order: order)
     total_price = order.total_price
