@@ -22,8 +22,8 @@ RSpec.feature 'Admins cannot edit users data' do
 
     click_on "Update"
 
-    expect(page).to have_content("Name : Testy McTesterson")
-    expect(page).to have_content("Email : test@test.com")
+    expect(page).to have_content("Name: Testy McTesterson")
+    expect(page).to have_content("Email: test@test.com")
   end
 
   scenario "As a logged in admin, cannot edit a user's profile" do

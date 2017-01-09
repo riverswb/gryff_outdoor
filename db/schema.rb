@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107045205) do
+ActiveRecord::Schema.define(version: 20170109181109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_address"
+    t.string   "secondary_address"
+    t.string   "city"
+    t.string   "state_abbr"
+    t.string   "zip_code"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -40,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170107045205) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string  "status"
+    t.integer "status"
     t.integer "user_id"
     t.date    "updated_at", null: false
     t.date    "created_at", null: false

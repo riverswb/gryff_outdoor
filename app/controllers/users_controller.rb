@@ -11,12 +11,14 @@ class UsersController < ApplicationController
       session[:message] = "Logged in as #{user.first_name} #{user.last_name}"
       redirect_to dashboard_path
     else
-      #add sad path
+      flash[:danger] = user.errors.full_messages.first
+      redirect_to new_user_path
     end
   end
 
   def show
     @user = User.find(session[:user])
+    @addresses = @user.addresses
   end
 
   def update

@@ -6,14 +6,15 @@ Rails.application.routes.draw do
   patch '/cart' => 'carts#update'
   resources :items, only: [:index, :show]
   resources :carts, only: [:create]
-  resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :users, only: [:new, :create, :show, :edit, :update] do
+    resources :addresses, only: [:new, :create, :edit, :destroy]
+  end
   namespace :admin do
     get '/dashboard', to: "orders#dashboard"
     resources :items, only: [:index, :update]
     resources :users, only: [:show]
   end
-  resources :orders, only: [:index, :show]
-  get '/order_create', to: "orders#create"
+  resources :orders, only: [:index, :show, :create]
   get '/dashboard', to: "users#show"
   post '/login', to: "sessions#create"
   get '/login', to: "sessions#new"

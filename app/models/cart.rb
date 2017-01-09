@@ -1,5 +1,6 @@
 class Cart
 
+
   attr_reader :contents
 
   def initialize(initial_contents)
@@ -32,7 +33,6 @@ class Cart
       sum
     end
   end
-
 
 
 end
