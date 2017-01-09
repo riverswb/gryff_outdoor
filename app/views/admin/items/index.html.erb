@@ -1,0 +1,13 @@
+<h1>Admin Items View</h1>
+
+<% @items.each do |item| %>
+  <ul>
+    <li>
+    <img src="<%= item.image %>" class="img-thumbnail" alt="Responsive thunbnail" />
+    <%= link_to item.title, item_path(item) %>
+    <%= item.description %>
+    <%= item.status %>
+    <%= link_to "Actions", admin_item_path(item) %>
+  </li>
+  </ul>
+<% end %>

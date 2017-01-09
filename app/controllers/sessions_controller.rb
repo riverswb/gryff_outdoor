@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if user.authenticate(params[:password])
       session[:user] = user.id
       session[:message] = "Logged in as #{user.first_name} #{user.last_name}"
+      return redirect_to admin_dashboard_path if user.admin?
       redirect_to dashboard_path
     else
       #sad_path

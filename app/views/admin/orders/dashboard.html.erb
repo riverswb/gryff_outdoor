@@ -1,0 +1,7 @@
+<h2>Admin Dashboard</h2>
+<%= link_to "View Items", admin_items_path %>
+<% @orders.each do |order| %>
+  <div class="panel penel-default">
+    <p>Order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
+  </div>
+<% end %>>

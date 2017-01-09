@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :carts, only: [:create]
   resources :users, only: [:new, :create]
+  namespace :admin do
+    get '/dashboard', to: "orders#dashboard"
+    resources :items, only: [:index, :update]
+  end
   resources :orders, only: [:index, :show]
   get '/order_create', to: "orders#create"
   get '/dashboard', to: "users#show"
