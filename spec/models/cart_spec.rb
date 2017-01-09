@@ -51,7 +51,7 @@ RSpec.describe Cart, type: :model do
     expect(cart.contents).to eq({items[0].id.to_s => 1})
   end
 
-  it "can tell weither to increase or deacrease the quantity" do
+  it "can tell whether to increase or deacrease the quantity" do
     cart.change_quantity(items[0].id, "increase")
 
     expect(cart.contents).to eq({items[0].id.to_s => 2})
