@@ -51,8 +51,5 @@ RSpec.describe Order, type: :model do
       
       expect(order.count).to eq 10
     end
-
-
-
   end
 end
