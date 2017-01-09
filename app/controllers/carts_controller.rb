@@ -3,33 +3,15 @@ class CartsController < ApplicationController
 
   def show
     @items = Item.item_list(@cart.contents)
-    @checkout_msg = message?
-    @checkout_path = path?
+    @checkout_msg = Cart.message?(session[:user])
+    @checkout_path = Cart.path?(session[:user])
     @total_cost = @cart.total_cost
-  end
-
-  def message?
-    if session[:user]
-      "Checkout"
-    else
-      "Login or Create Account to Checkout"
-    end
-  end
-
-  def path?
-    if session[:user]
-      "/order_create"
-    else
-      login_path
-    end
   end
 
   def create
     item = Item.find(params[:item_id])
-
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
-
     flash[:notice] = "You now have #{pluralize(@cart.count_of(item.id), item.title)}."
     redirect_back fallback_location: items_path
   end
