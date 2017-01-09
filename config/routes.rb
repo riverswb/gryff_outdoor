@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     get '/dashboard', to: "orders#dashboard"
     resources :items, only: [:index, :update]
   end
-  resources :orders, only: [:index, :show]
-  get '/order_create', to: "orders#create"
+  resources :orders, only: [:index, :show, :create]
+  #get '/order_create', to: "orders#create"
   get '/dashboard', to: "users#show"
   post '/login', to: "sessions#create"
   get '/login', to: "sessions#new"

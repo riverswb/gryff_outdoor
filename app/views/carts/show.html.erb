@@ -18,5 +18,5 @@
   <% end %>
 <div class="cart-info  cart-item panel panel-default">
   <h4>Total Cost: <%= number_to_currency(@total_cost) %></h4>
-  <h4><%= link_to @checkout_msg, @checkout_path, class: "btn btn-primary" %></h4>
+  <h4 class="btn btn-primary"><%= @checkout_path%></h4>
 </div>
