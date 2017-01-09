@@ -15,8 +15,13 @@ RSpec.describe Order, type: :model do
   end
 
   describe "calculations" do
-    it "can count the amount of items it has" do
+    it "can count the amount of all its' items" do
       expect(order.count).to eq 5
+    end
+
+    it "can calculate the total price of all its items" do
+      total_price = order.items.inject(0) {|sum, item| sum += item.price}
+      expect(order.total_price).to eq total_price
     end
   
 
