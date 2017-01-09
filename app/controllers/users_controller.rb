@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         render :edit
       end
     else
-      flash[:alert] = "Incorrect password"
+      flash[:danger] = "Incorrect password"
       render :edit
     end
   end

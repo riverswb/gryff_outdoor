@@ -25,7 +25,7 @@ RSpec.feature 'Admins cannot edit users data' do
     expect(page).to have_content("Name : Testy McTesterson")
     expect(page).to have_content("Email : test@test.com")
 
-    visit user_path(user)
+    visit admin_user_path(user)
 
     expect(page).to_not have_link("Edit")
   end

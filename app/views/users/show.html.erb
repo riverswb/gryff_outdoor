@@ -3,4 +3,6 @@
 <br/>
 <p>Name : <%= @user.first_name %> <%= @user.last_name %></p>
 <p>Email : <%= @user.email %></p>
-<p><%= link_to "Edit", edit_user_path(@user) %></p>
+<% if session[:user] == @user.id %>
+  <p><%= link_to "Edit", edit_user_path(@user) %></p>
+<% end %>
