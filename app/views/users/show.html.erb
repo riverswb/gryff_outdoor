@@ -1,8 +1,7 @@
 <br/>
 <br/>
 <br/>
+<h1><%= "#{@user.first_name}'s Profile" %></h1>
 <p>Name : <%= @user.first_name %> <%= @user.last_name %></p>
 <p>Email : <%= @user.email %></p>
-<% if session[:user] == @user.id %>
-  <p><%= link_to "Edit", edit_user_path(@user) %></p>
-<% end %>
+<p><%= link_to "Edit", edit_user_path(@user) %></p>
