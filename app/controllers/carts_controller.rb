@@ -2,9 +2,7 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def show
-    @items = @cart.contents.map do |item, quantity|
-      [Item.find(item), quantity]
-    end
+    @items = Item.item_list(@cart.contents)
     @checkout_msg = Cart.message?(session[:user])
     @checkout_path = Cart.path?(session[:user])
     @total_cost = @cart.total_cost
