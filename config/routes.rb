@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   patch '/cart' => 'carts#update'
   resources :items, only: [:index, :show]
   resources :carts, only: [:create]
-  resources :users, only: [:new, :create, :show, :update]
+  resources :users, only: [:new, :create, :show, :edit, :update]
   namespace :admin do
     get '/dashboard', to: "orders#dashboard"
     resources :items, only: [:index, :update]

@@ -1,3 +1,6 @@
+<br/>
+<br/>
+<br/>
 <p>Name : <%= @user.first_name %> <%= @user.last_name %></p>
 <p>Email : <%= @user.email %></p>
-<p><%= link_to "Edit", user_path(@user), method: "patch" %></p>
+<p><%= link_to "Edit", edit_user_path(@user) %></p>

@@ -21,7 +21,22 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(session[:user])
-    
+    if @user.authenticate(user_params[:password])
+      if @user.update(user_params)
+        @user.save
+        flash[:success] = "Profile successfully updated"
+        redirect_to dashboard_path
+      else
+        render :edit
+      end
+    else
+      flash[:alert] = "Incorrect password"
+      render :edit
+    end
+  end
+
+  def edit
+    @user = User.find(session[:user])
   end
   private
 
