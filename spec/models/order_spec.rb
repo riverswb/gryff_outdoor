@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Order, type: :model do
 
-  attr_reader :order
+  attr_reader :order, :items
 
   before(:each) do
-    @order = create:order
+    @order = create(:order)
+    @items = create_list(:item, 10)
   end
 
   describe "relationships" do
@@ -38,11 +39,17 @@ RSpec.describe Order, type: :model do
     end
 
     it "can make an order" do
-      items = create_list(:item, 10)
       expect(order.count).to eq 5
       Order.make_order(order, {items[0].id.to_s => 2, items[1].id.to_s => 1})
     
       expect(order.count).to eq 8
+    end
+
+    it "can add an item" do
+      expect(order.count).to eq 5
+      order.add_item(items[0].id, 5)
+      
+      expect(order.count).to eq 10
     end
 
 
