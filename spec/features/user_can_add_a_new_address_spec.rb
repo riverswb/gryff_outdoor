@@ -14,7 +14,7 @@ RSpec.feature "When a user visits their user dashboard" do
         click_on "Login"
       end
     click_on "Add an Address"
-    expect(path).to eq(new_user_address_path(@user))
+    expect(current_path).to eq(new_user_address_path(@user))
   end
 
 end
