@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Admins cannot edit users data' do
-  scenario 'as a logged in admin' do
+  scenario 'as a logged in admin can edit own profile' do
     user = create(:user)
     admin = create(:user, role: 1)
 
@@ -24,9 +24,23 @@ RSpec.feature 'Admins cannot edit users data' do
 
     expect(page).to have_content("Name : Testy McTesterson")
     expect(page).to have_content("Email : test@test.com")
+  end
+
+  scenario "As a logged in admin, cannot edit a user's profile" do
+    user = create(:user)
+    admin = create(:user, role: 1)
+
+    visit login_path
+
+    fill_in "email", with: admin.email
+    fill_in "password", with: admin.password
+    click_button "Login"
 
     visit admin_user_path(user)
 
+    expect(page).to have_content(user.first_name)
+    expect(page).to have_content(user.last_name)
+    expect(page).to have_content(user.email)
     expect(page).to_not have_link("Edit")
   end
 end
