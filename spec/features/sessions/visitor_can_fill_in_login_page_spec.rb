@@ -29,7 +29,7 @@ RSpec.feature "When a visitor visits root path" do
     visit login_path
 
     fill_in "Email", :with => user.email
-    fill_in "Password", :with => "wrong_pass"
+    fill_in "Password", :with => "wrong_password"
 
     within ".form_inline" do
       click_on "Login"
