@@ -16,17 +16,12 @@ class OrdersController < ApplicationController
     @order = @user.orders.create(status: "ordered")
     items = session[:cart]
     items.each do |item_id, quantity|
-      item = Item.find(item_id.to_i)
-      add_item(@order, item, quantity)
+      @order.add_item(item_id, quantity)
     end
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
   end
 
-  def add_item(order, item, quantity)
-    quantity.times do
-      order.items << item
-    end
-  end
+  
 
 end

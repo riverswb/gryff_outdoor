@@ -23,4 +23,11 @@ class Order < ApplicationRecord
       return "Cancelled at #{self.updated_at}"
     end
   end
+
+  def add_item(item_id, quantity)
+    item = Item.find(item_id.to_i)
+    quantity.times do
+      self.items << item
+    end
+  end
 end
