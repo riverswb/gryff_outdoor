@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
 
   def create
     @user = User.find(session[:user])
-    @order = @user.orders.create(status: "Ordered")
+    @order = @user.orders.create(status: "ordered")
     items = session[:cart]
     items.each do |item_id, quantity|
       item = Item.find(item_id.to_i)
