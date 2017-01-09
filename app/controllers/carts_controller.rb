@@ -3,9 +3,16 @@ class CartsController < ApplicationController
 
   def show
     @items = Item.item_list(@cart.contents)
-    @checkout_msg = Cart.message?(session[:user])
-    @checkout_path = Cart.path?(session[:user])
+    @checkout_path = path?(session[:user])
     @total_cost = @cart.total_cost
+  end
+
+  def path?(user)
+    if user
+      return view_context.link_to "Checkout", orders_path, method: "post" 
+    else
+      return view_context.link_to "Login or Create Account to Checkout", login_path
+    end
   end
 
   def create

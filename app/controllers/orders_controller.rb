@@ -13,12 +13,10 @@ class OrdersController < ApplicationController
 
   def create
     @user = User.find(session[:user])
-    @order = @user.orders.create(status: "ordered")
+    @order = @user.orders.create(status: 1)
     Order.make_order(@order, session[:cart])
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
   end
-
-  
 
 end
