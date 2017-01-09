@@ -26,13 +26,15 @@ RSpec.describe Order, type: :model do
     end
   
     it "can return a special message if the status is completed" do
-      order = create(:order, status: 1)
+      order = create(:order, status: 3)
       
       expect(order.canceled_or_completed).to eq "Completed at #{order.updated_at}"
     end
 
     it "can return a special message if the status is cancelled" do
-      order = create(:)
+      order = create(:order, status: 2)
+
+      expect(order.canceled_or_completed).to eq "Cancelled at #{order.updated_at}"
     end
 
 
