@@ -5,25 +5,9 @@ class CartsController < ApplicationController
     @items = @cart.contents.map do |item, quantity|
       [Item.find(item), quantity]
     end
-    @checkout_msg = message?
-    @checkout_path = path?
+    @checkout_msg = Cart.message?(session[:user])
+    @checkout_path = Cart.path?(session[:user])
     @total_cost = @cart.total_cost
-  end
-
-  def message?
-    if session[:user]
-      "Checkout"
-    else
-      "Login or Create Account to Checkout"
-    end
-  end
-
-  def path?
-    if session[:user]
-      "/order_create"
-    else
-      login_path
-    end
   end
 
   def create
