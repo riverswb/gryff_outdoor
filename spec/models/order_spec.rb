@@ -21,9 +21,19 @@ RSpec.describe Order, type: :model do
 
     it "can calculate the total price of all its items" do
       total_price = order.items.inject(0) {|sum, item| sum += item.price}
+      
       expect(order.total_price).to eq total_price
     end
   
+    it "can return a special message if the status is completed" do
+      order = create(:order, status: 1)
+      
+      expect(order.canceled_or_completed).to eq "Completed at #{order.updated_at}"
+    end
+
+    it "can return a special message if the status is cancelled" do
+      order = create(:)
+    end
 
 
 
