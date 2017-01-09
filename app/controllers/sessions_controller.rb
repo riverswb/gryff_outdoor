@@ -11,6 +11,8 @@ class SessionsController < ApplicationController
       return redirect_to admin_dashboard_path if user.admin?
       redirect_to dashboard_path
     else
+      byebug
+      flash
       #sad_path
     end
   end
