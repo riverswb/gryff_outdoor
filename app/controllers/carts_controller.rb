@@ -3,14 +3,14 @@ class CartsController < ApplicationController
   before_action :set_user_and_addresses, only: [:show]
 
   def show
-    @items = Item.item_list(@cart.contents)
-    @checkout_path = path?(@user)
+    @items = Item.item_list(@cart.contents) if @cart.contents
+    @checkout_path = path?(session[:user])
     @total_cost = @cart.total_cost
   end
 
   def path?(user)
     if user
-      return view_context.link_to "Checkout", orders_path, method: "post" 
+      return view_context.link_to "Checkout", new_charge_path
     else
       return view_context.link_to "Login or Create Account to Checkout", login_path
     end
