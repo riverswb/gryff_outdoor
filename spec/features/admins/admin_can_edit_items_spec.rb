@@ -45,5 +45,28 @@ RSpec.feature 'Admin can edit items' do
       expect(current_path).to eq(edit_admin_item_path(@item))
       expect(page).to have_content("Title can't be blank")
     end
+
+    scenario 'deletes description' do
+
+      fill_in 'item[title]', with: 'Test'
+      fill_in 'item[description]', with: nil
+      fill_in 'item[price]', with: @item.price.round(2) + 1
+
+      click_on 'Update'
+
+      expect(current_path).to eq(edit_admin_item_path(@item))
+      expect(page).to have_content("Description can't be blank")
+    end
+
+    scenario 'deletes price' do
+      fill_in 'item[title]', with: 'Test'
+      fill_in 'item[description]', with: 'Test Description'
+      fill_in 'item[price]', with: nil
+
+      click_on 'Update'
+
+      expect(current_path).to eq(edit_admin_item_path(@item))
+      expect(page).to have_content("Price can't be blank")
+    end
   end
 end
