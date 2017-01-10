@@ -1,0 +1,35 @@
+<br/>
+<br/>
+<br/>
+<h1>User's Edit Page</h1>
+<%= form_for @user do |f| %>
+  <h3>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </h3>
+
+  <h3>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </h3>
+
+  <h3>
+  <%= f.label :email  %>
+  <%= f.email_field :email %>
+  </h3>
+
+  <h3>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </h3>
+
+  <h3>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </h3>
+
+  <h3>
+    <%= f.submit %>
+  </h3>
+
+<% end %>
