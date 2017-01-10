@@ -9,7 +9,7 @@ class CartsController < ApplicationController
 
   def path?(user)
     if user
-      return view_context.link_to "Checkout", payment_path
+      return view_context.link_to "Checkout", new_charge_path
     else
       return view_context.link_to "Login or Create Account to Checkout", login_path
     end
