@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
   end
   resources :orders, only: [:index, :show, :create]
+  resources :charges, only: [:new, :create]
   get '/dashboard', to: "users#show"
   post '/login', to: "sessions#create"
   get '/login', to: "sessions#new"
