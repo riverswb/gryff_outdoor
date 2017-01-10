@@ -1,10 +1,9 @@
 class Cart
+  attr_reader :contents, :address
 
-
-  attr_reader :contents
-
-  def initialize(initial_contents)
+  def initialize(initial_contents, address)
     @contents = initial_contents ||= {}
+    @address  = address ||= {}
   end
 
   def add_item(item_id)
@@ -33,6 +32,5 @@ class Cart
       sum
     end
   end
-
 
 end
