@@ -6,9 +6,6 @@ class OrdersController < ApplicationController
     @quantity = @order.order_items.last.quantity
   end
 
-  def payment
-  end
-
   def index
     @user = User.find(session[:user])
     @orders = @user.orders

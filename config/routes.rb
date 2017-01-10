@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :update]
   end
   resources :orders, only: [:index, :show, :create]
-  get 'payment', to: "orders#payment"
+  resources :charges, only: [:new, :create]
   get '/dashboard', to: "users#show"
   post '/login', to: "sessions#create"
   get '/login', to: "sessions#new"
