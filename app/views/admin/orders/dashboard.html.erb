@@ -1,7 +1,16 @@
 <h2>Admin Dashboard</h2>
-<%= link_to "View Items", admin_items_path %>
+<%= link_to "View Items", admin_items_path %> <br>
+<div>
+Sort by Status
+<%= form_tag '/admin/dashboard', method: 'GET' do %>
+  <%= label_tag :sort_by_status %>
+  <%= select_tag :status, @orders.collect options_for_select({ |p| p.status}), include_blank: true %>
+  <%= submit_tag "Sort" %>
+<% end %>
+</div>
+
 <% @orders.each do |order| %>
-  <div class="panel penel-default">
-    <p>Order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
+  <div class="panel panel-default">
+    <p><%= order.status.capitalize %> order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
   </div>
 <% end %>>

@@ -3,6 +3,10 @@ belongs_to :user
 has_many :order_items
 has_many :items, through: :order_items
 
+# scope :completed, -> {where(:status => 0)}
+# scope :ordered, -> {where(:status => 1)}
+# scope :paid, -> {where(:status => 2)}
+
   def count
     self.items.count
   end
