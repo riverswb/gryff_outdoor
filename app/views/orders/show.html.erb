@@ -7,12 +7,13 @@
     <%= @address.city %>,<%= @address.state_abbr %>
     <%= @address.zip_code %>
 </p>
+<h3>Order status: <%= @order.status %></h3>
 <div class="order-info">
   <p>Status: <%= @order.status %> Quantity: <%= @quantity %> Total Price: <%= @order.total_price %></p>
   <p><%= @canceled_or_completed_message %></p>
 </div>
 <% @order.items.each do |item| %>
   <div class="panel panel-default">
-    <%= link_to item.title, item_path(item) %>
+    <%= link_to item.title, item_path(item) %> $<%= item.price %>
   </div>
 <% end %>

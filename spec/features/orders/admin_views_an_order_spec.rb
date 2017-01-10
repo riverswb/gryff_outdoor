@@ -5,10 +5,10 @@ RSpec.feature "When an admin visits an order page" do
   before(:all) do
     @order = create(:order)
     @address = @order.address
+    visit order_path(@order)
   end
 
   scenario "they can see the order's date and time" do
-    visit order_path(@order)
     expect(page).to have_content(@order.created_at)
   end
 
@@ -24,9 +24,16 @@ RSpec.feature "When an admin visits an order page" do
   end
 
   scenario "they see all items as links with quantities, prices, and line subtotals" do
+    visit order_path(@order)
+    # expect(page).to have_content(@order.items.first.quantity)
+    #  (x <%= Item.find_quantity(item) %>)
+    expect(page).to have_content(@order.items.first.price)
+    # expect(page).to have_content(@order.items.first.line_subtotal)
   end
 
   scenario "they can see the order total and status" do
+    visit order_path(@order)
+    expect(page).to have_content(@order.status)
   end
 
 end
