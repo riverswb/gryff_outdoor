@@ -6,8 +6,6 @@ class Order < ApplicationRecord
 
   enum status: %w(ordered paid cancelled completed)
 
-
-
   def count
     self.items.count
   end

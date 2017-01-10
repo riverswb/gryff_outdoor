@@ -4,7 +4,7 @@ class CartsController < ApplicationController
 
   def show
     @items = Item.item_list(@cart.contents)
-    @checkout_path = path?(session[:user])
+    @checkout_path = path?(@user)
     @total_cost = @cart.total_cost
   end
 
@@ -38,6 +38,7 @@ class CartsController < ApplicationController
   end
 
 private
+
   def set_user_and_addresses
     if session[:user]
       @user = User.find(session[:user])
