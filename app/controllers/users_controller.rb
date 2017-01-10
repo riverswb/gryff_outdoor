@@ -25,15 +25,19 @@ class UsersController < ApplicationController
     @user = User.find(session[:user])
     if @user.authenticate(user_params[:password])
       @user.update(user_params)
-      if @user.save
-        flash[:success] = "Profile successfully updated"
-        redirect_to dashboard_path
-      else
-        flash[:danger] = @user.errors.full_messages.first
-        redirect_to edit_user_path
-      end
+      save_user?(@user)
     else
-      flash[:danger] = "Incorrect password"
+      flash[:danger] = 'Incorrect password'
+      redirect_to edit_user_path
+    end
+  end
+
+  def save_user?(user)
+    if user.save
+      flash[:success] = 'Profile successfully updated'
+      redirect_to dashboard_path
+    else
+      flash[:danger] = user.errors.full_messages.first
       redirect_to edit_user_path
     end
   end
