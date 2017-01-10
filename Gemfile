@@ -39,6 +39,7 @@ gem 'sass-rails', '>= 3.2'
 
 # Faker needs to be accesible in production now
   gem 'faker'
+  gem 'stripe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

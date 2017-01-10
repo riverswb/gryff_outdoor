@@ -46,6 +46,7 @@ FactoryGirl.define do
         create_list(:order, 10, user: user)
       end
     end
+    
   end
 
   factory :order_item do
