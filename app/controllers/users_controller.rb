@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       end
     else
       flash[:danger] = "Incorrect password"
-      render :edit
+      redirect_to edit_user_path
     end
   end
 

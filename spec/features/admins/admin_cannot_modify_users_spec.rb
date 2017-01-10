@@ -69,7 +69,7 @@ RSpec.feature 'Admins cannot edit users data' do
       expect(page).to have_content("First name can't be blank")
     end
 
-    scenario "deletes first name" do
+    scenario "deletes last name" do
       admin = create(:user, role: 1)
 
       visit login_path
@@ -91,6 +91,102 @@ RSpec.feature 'Admins cannot edit users data' do
 
       expect(current_path).to eq(edit_user_path(admin))
       expect(page).to have_content("Last name can't be blank")
+    end
+
+    scenario "deletes email" do
+      admin = create(:user, role: 1)
+
+      visit login_path
+
+      fill_in "email", with: admin.email
+      fill_in "password", with: admin.password
+      click_button "Login"
+
+      visit user_path(admin)
+      click_on "Edit"
+
+      fill_in "user[first_name]", with: "Testy"
+      fill_in "user[last_name]", with: "McTesterson"
+      fill_in "user[email]", with: nil
+      fill_in "user[password]", with: admin.password
+      fill_in "user[password_confirmation]", with: admin.password
+
+      click_on "Update"
+
+      expect(current_path).to eq(edit_user_path(admin))
+      expect(page).to have_content("Email can't be blank")
+    end
+
+    scenario "Password left blank" do
+      admin = create(:user, role: 1)
+
+      visit login_path
+
+      fill_in "email", with: admin.email
+      fill_in "password", with: admin.password
+      click_button "Login"
+
+      visit user_path(admin)
+      click_on "Edit"
+
+      fill_in "user[first_name]", with: "Testy"
+      fill_in "user[last_name]", with: "McTesterson"
+      fill_in "user[email]", with: "test@test.com"
+      fill_in "user[password]", with: nil
+      fill_in "user[password_confirmation]", with: admin.password
+
+      click_on "Update"
+
+      expect(current_path).to eq(edit_user_path(admin))
+      expect(page).to have_content("Incorrect password")
+    end
+
+    scenario "Password confirmation left blank / doesn't match password" do
+      admin = create(:user, role: 1)
+
+      visit login_path
+
+      fill_in "email", with: admin.email
+      fill_in "password", with: admin.password
+      click_button "Login"
+
+      visit user_path(admin)
+      click_on "Edit"
+
+      fill_in "user[first_name]", with: "Testy"
+      fill_in "user[last_name]", with: "McTesterson"
+      fill_in "user[email]", with: "test@test.com"
+      fill_in "user[password]", with: admin.password
+      fill_in "user[password_confirmation]", with: nil
+
+      click_on "Update"
+
+      expect(current_path).to eq(edit_user_path(admin))
+      expect(page).to have_content("Password confirmation doesn't match Password")
+    end
+
+    scenario "Password and confirmation do not match" do
+      admin = create(:user, role: 1)
+
+      visit login_path
+
+      fill_in "email", with: admin.email
+      fill_in "password", with: admin.password
+      click_button "Login"
+
+      visit user_path(admin)
+      click_on "Edit"
+
+      fill_in "user[first_name]", with: "Testy"
+      fill_in "user[last_name]", with: "McTesterson"
+      fill_in "user[email]", with: "test@test.com"
+      fill_in "user[password]", with: admin.password
+      fill_in "user[password_confirmation]", with: "wrong"
+
+      click_on "Update"
+
+      expect(current_path).to eq(edit_user_path(admin))
+      expect(page).to have_content("Password confirmation doesn't match Password")
     end
 
   end
