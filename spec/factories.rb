@@ -15,6 +15,7 @@ FactoryGirl.define do
     status "completed"
     #status { [:ordered, :paid, :cancelled, :completed].sample }
     user
+    address
     items {create_list(:item, 5)}
   end
 
