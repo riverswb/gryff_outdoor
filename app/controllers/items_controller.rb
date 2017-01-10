@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
       flash[:success] = "Item successfully updated"
       redirect_to item_path(item)
     else
-      flash[:alert] = item.errors.full_message
+      flash[:danger] = item.errors.full_messages.first
       redirect_to edit_admin_item_path(item)
     end
   end
