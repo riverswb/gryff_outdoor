@@ -1,7 +1,3 @@
-# Category.all.delete
-# Item.all.delete
-# User.all.delete
-
 category_1 = Category.create(name: 'hiking')
 category_2 = Category.create(name: 'fishing')
 category_3 = Category.create(name: 'climbing')
