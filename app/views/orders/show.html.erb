@@ -1,5 +1,12 @@
 <h2>Your Order from <%= @order.created_at %></h2>
-<p><%= @user.first_name %><%= @user.last_name %></p></br>
+<p> <%= @user.first_name %><%= @user.last_name %></br>
+    <%= @address.street_address %>
+    <% if @address.secondary_address %>
+      <%= @address.secondary_address %>
+    <% end %>
+    <%= @address.city %>,<%= @address.state_abbr %>
+    <%= @address.zip_code %>
+</p>
 <div class="order-info">
   <p>Status: <%= @order.status %> Quantity: <%= @quantity %> Total Price: <%= @order.total_price %></p>
   <p><%= @canceled_or_completed_message %></p>

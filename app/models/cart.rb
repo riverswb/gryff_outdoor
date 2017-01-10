@@ -1,9 +1,9 @@
 class Cart
   attr_reader :contents, :address
 
-  def initialize(initial_contents, address)
+  def initialize(initial_contents, address="Please enter an address")
     @contents = initial_contents ||= {}
-    @address  = address ||= {}
+    @address  = address
   end
 
   def add_item(item_id)
