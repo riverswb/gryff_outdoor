@@ -1,4 +1,5 @@
 <h2>Your Order from <%= @order.created_at %></h2>
+<%= @order.user.first_name %><%= @order.user.last_name %>
 <div class="order-info">
   <p>Status: <%= @order.status %> Quantity: <%= @quantity %> Total Price: <%= @order.total_price %></p>
   <p><%= @canceled_or_completed_message %></p>

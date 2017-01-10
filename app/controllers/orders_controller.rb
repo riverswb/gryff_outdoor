@@ -13,20 +13,10 @@ class OrdersController < ApplicationController
 
   def create
     @user = User.find(session[:user])
-    @order = @user.orders.create(status: "?")
-    items = session[:cart]
-    items.each do |item_id, quantity|
-      item = Item.find(item_id.to_i)
-      add_item(@order, item, quantity)
-    end
+    @order = @user.orders.create(status: 1)
+    Order.make_order(@order, session[:cart])
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
-  end
-
-  def add_item(order, item, quantity)
-    quantity.times do
-      order.items << item
-    end
   end
 
 end
