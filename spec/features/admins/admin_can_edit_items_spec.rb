@@ -15,14 +15,15 @@ RSpec.feature 'Admin can edit items' do
   scenario 'an admin can edit an item from admin items path' do
     visit admin_items_path
 
-    click_on 'Edit Item'
+    click_on 'Actions'
 
-    expect(current_path).to eq(admin_edit_item_path)
+    expect(current_path).to eq(edit_admin_item_path(@item))
 
     fill_in 'item[title]', with: "TeSt"
 
     click_on "Update"
 
     expect(current_path).to eq(item_path(@item))
+    expect(page).to have_content("TeSt")
   end
 end

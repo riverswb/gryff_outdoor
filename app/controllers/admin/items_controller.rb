@@ -4,4 +4,8 @@ class Admin::ItemsController < Admin::BaseController
     @items = Item.all
   end
 
+  def edit
+    @item = Item.find(params[:id].to_i)
+  end
+
 end

@@ -7,7 +7,7 @@
     <%= link_to item.title, item_path(item) %>
     <%= item.description %>
     <%= item.status %>
-    <%= link_to "Actions", admin_item_path(item) %>
+    <%= link_to "Actions", edit_admin_item_path(item) %>
   </li>
   </ul>
 <% end %>

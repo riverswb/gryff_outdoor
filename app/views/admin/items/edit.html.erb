@@ -1,0 +1,11 @@
+<br>
+<br>
+<br>
+<h1>Edit Item Page</h1>
+
+<%= form_for [@admin, @item] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.submit %>
+<% end %>
