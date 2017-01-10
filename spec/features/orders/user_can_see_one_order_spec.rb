@@ -22,7 +22,7 @@ RSpec.feature "When a use visits order show page" do
     expect(page).to have_link items[0].title
     expect(page).to have_content "Order from #{order.created_at}"
     expect(page).to have_content order.status
-    expect(page).to have_content total_price
+    expect(page).to have_content total_price.round(2)
     expect(page).to have_content "Completed at"
   end
 end

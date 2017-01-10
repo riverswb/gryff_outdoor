@@ -17,4 +17,8 @@ class Item < ApplicationRecord
   def self.find_quantity(item, order)
     order.items.where(id: item.id).count
   end
+
+  def self.find_line_subtotal(quantity, item)
+    item.price * quantity
+  end
 end
