@@ -47,7 +47,13 @@ FactoryGirl.define do
         create_list(:order, 10, user: user)
       end
     end
-    
+
+    factory :user_with_orders_and_addresses do
+      after(:create) do |user|
+        create_list(:order, 10, user: user)
+        create_list(:address, 2, user: user)
+      end
+    end
   end
 
   factory :order_item do

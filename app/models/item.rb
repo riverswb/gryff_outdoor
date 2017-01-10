@@ -13,4 +13,8 @@ class Item < ApplicationRecord
       [find(item), quantity]
     end
   end
+
+  def self.find_quantity(item, order)
+    order.items.where(id: item.id).count
+  end
 end

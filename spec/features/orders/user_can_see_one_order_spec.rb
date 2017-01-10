@@ -20,7 +20,6 @@ RSpec.feature "When a use visits order show page" do
     click_on "See Details", {match: :first}
 
     expect(page).to have_link items[0].title
-    expect(page).to have_content "Quantity: #{order.order_items.last.quantity}"
     expect(page).to have_content "Order from #{order.created_at}"
     expect(page).to have_content order.status
     expect(page).to have_content total_price
