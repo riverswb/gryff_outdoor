@@ -4,7 +4,7 @@ RSpec.feature "When a use visits order show page" do
 
   scenario "they can see each item in that order with subtotals" do
     user = create(:user_with_orders)
-    order  = user.orders.fir
+    order  = user.orders.first
     items = order.items
     create(:order_item, item: items.first, order: order)
     total_price = order.total_price
