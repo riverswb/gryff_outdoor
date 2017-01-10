@@ -51,6 +51,7 @@ group :development, :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'stripe-ruby-mock'
 end
 
 group :development do
