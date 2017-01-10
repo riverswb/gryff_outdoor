@@ -24,7 +24,7 @@ RSpec.feature 'Visitor is required to login to account before checkout', type: :
 
     expect(current_path).to eq(orders_path)
     expect(page).to have_content("Order was successfully placed")
-    save_and_open_page
+    # save_and_open_page
     expect(page).to have_content(Order.first.created_at)
   end
 end

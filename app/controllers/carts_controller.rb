@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
+  before_action :set_user_and_addresses, only: [:show]
 
   def show
     @items = Item.item_list(@cart.contents)
@@ -34,5 +35,15 @@ class CartsController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.change_quantity(item.id, params[:quantity_change])
     redirect_to cart_path(@cart)
+  end
+
+private
+  def set_user_and_addresses
+    if session[:user]
+      @user = User.find(session[:user])
+      @addresses = @user.addresses.all
+    else
+      @user = nil
+    end
   end
 end
