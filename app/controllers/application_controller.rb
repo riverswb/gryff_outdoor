@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
       @login_status = "Logout"
       @login_path = logout_path
     else
-      @login_status = "Login"
+      @login_status = "Log in"
       @login_path = login_path
     end
   end

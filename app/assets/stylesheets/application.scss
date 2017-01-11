@@ -62,6 +62,12 @@ body {
 
 .page-header {
   font-family: "Cabin Sketch";
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.name {
+  font-family: "Cabin Sketch";
   font-size: 4em;
   font-weight: 600;
 }
@@ -178,7 +184,7 @@ nav.navbar-findcond span.badge.new {
 }
 
 .jumbotron {
-  background: rgba(213, 223, 235, 0.35);
-  border-color: rgb(139, 188, 231);
+  background: rgba(213, 223, 235, 0.30);
+  border-color: #431A0F;
   box-shadow: 0 0 2px 0 #ccc;
 }
