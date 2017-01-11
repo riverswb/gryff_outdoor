@@ -29,7 +29,7 @@ RSpec.feature "Visitor can view all items", type: :feature do
 
     visit items_path
 
-    within ("ul:nth-child(3)") do
+    within ("ul:nth-child(4)") do
       click_on "Add to cart"
     end
 
