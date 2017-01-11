@@ -7,9 +7,10 @@ class Order < ApplicationRecord
 
 
 
-# scope :completed, -> {where(:status => 0)}
-# scope :ordered, -> {where(:status => 1)}
-# scope :paid, -> {where(:status => 2)}
+  scope :ordered, -> {where(:status => 0)}
+  scope :paid, -> {where(:status => 1)}
+  scope :cancelled, -> {where(:status => 2)}
+  scope :completed, -> {where(:status => 3)}
 
   def count
     self.items.count
@@ -41,5 +42,23 @@ class Order < ApplicationRecord
     quantity.times do
       self.items << item
     end
+  end
+
+  def self.sort(category)
+    if category == 'paid'
+      @orders = Order.paid
+    elsif category == 'cancelled'
+      @orders = Order.cancelled
+    elsif category == 'completed'
+      @orders = Order.completed
+    elsif category == 'ordered'
+      @orders = Order.ordered
+    else
+      @orders = Order.all
+    end
+  end
+
+  def self.status_list
+    group(:status).count(:status)
   end
 end

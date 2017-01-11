@@ -2,13 +2,12 @@ class Admin::OrdersController < Admin::BaseController
 
 
   def dashboard
-    @orders = Order.all
-    # where(status: order_params[:order][:status])
-    # byebug
+    @orders = Order.sort(params[:status])
+    @status_list = Order.status_list
   end
 
-  private
-  def order_params
-    params.require(:order).permit(:status)
+  def edit
+    byebug
   end
+
 end

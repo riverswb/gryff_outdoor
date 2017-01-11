@@ -1,16 +1,25 @@
 <h2>Admin Dashboard</h2>
 <%= link_to "View Items", admin_items_path %> <br>
-<div>
+<div class='status'>
 Sort by Status
-<%= form_tag '/admin/dashboard', method: 'GET' do %>
-  <%= label_tag :sort_by_status %>
-  <%= select_tag :status, @orders.collect options_for_select({ |p| p.status}), include_blank: true %>
-  <%= submit_tag "Sort" %>
+<%= form_tag admin_dashboard_path, method: 'get' do %>
+  <%= select_tag :status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "All Orders " %>
+  <%= submit_tag 'Sort' %>
 <% end %>
 </div>
-
+<div class='container'>
+  <% @status_list.each do |stat, count| %>
+    <%= "(#{count}) total #{stat} orders." %> 
+  <% end %>
+</div class='container'>
 <% @orders.each do |order| %>
   <div class="panel panel-default">
     <p><%= order.status.capitalize %> order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
+    <%= form_tag [order, edit_admin_order_path] do %>
+      <%= select_tag :status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "All Orders " %>
+      <%= select_tag :id, order.id %>
+      <%= submit_tag 'Update' %>
+    
+    <% end %>
   </div>
-<% end %>>
+<% end %>
