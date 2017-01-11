@@ -16,7 +16,6 @@ RSpec.feature 'Admin can edit items' do
   end
 
   scenario 'an admin can edit an item from admin items path' do
-
     expect(current_path).to eq(edit_admin_item_path(@item))
 
     fill_in 'item[title]', with: 'TeSt'
@@ -35,7 +34,6 @@ RSpec.feature 'Admin can edit items' do
 
   describe 'sad path' do
     scenario 'deletes title' do
-
       fill_in 'item[title]', with: nil
       fill_in 'item[description]', with: 'Test description'
       fill_in 'item[price]', with: @item.price + 1
@@ -47,7 +45,6 @@ RSpec.feature 'Admin can edit items' do
     end
 
     scenario 'deletes description' do
-
       fill_in 'item[title]', with: 'Test'
       fill_in 'item[description]', with: nil
       fill_in 'item[price]', with: @item.price.round(2) + 1
