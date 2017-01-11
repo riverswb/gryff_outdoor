@@ -1,14 +1,25 @@
 </br></br></br></br></br>
+<span>
 <%= search_form_for @search do |f| %>
-  <div class="field">
-    <%= f.label :title_cont, "Title Contains"%>
+  <span class="field">
+    <%= f.label :title_cont, "Item Title Contains:"%>
     <%= f.text_field :title_cont %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Search" %>
-  </div>
+  </span>
+  <span class="actions">
+    <%= f.submit "Item Search" %>
+  </span>
 <% end %>
+</span>
+<span>
+<%= search_form_for @q do |f| %>
+  <%= f.label :category_name_cont, "Category Name Contains:" %>
+  <%= f.search_field :category_name_cont %>
 
+  <span>
+    <%= f.submit "Category Search" %>
+  </span>
+<% end %>
+</span>
 <% @items.each do |item| %>
   <ul class="list-group row">
     <li class="col-md-2"></li>
