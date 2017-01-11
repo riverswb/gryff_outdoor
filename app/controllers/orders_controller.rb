@@ -2,8 +2,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @address = @order.address
     @canceled_or_completed_message = @order.canceled_or_completed
-    @quantity = @order.order_items.last.quantity
+    @user = @order.user
   end
 
   def index

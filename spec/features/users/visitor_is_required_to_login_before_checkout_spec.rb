@@ -23,5 +23,6 @@ RSpec.feature 'Visitor is required to login to account before checkout', type: :
     click_on 'Checkout'
 
     expect(current_path).to eq(new_charge_path)
+
   end
 end

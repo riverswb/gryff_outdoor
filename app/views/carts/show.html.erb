@@ -16,7 +16,15 @@
     </div>
   </div>
   <% end %>
+  <% if @user %>
+    <h3>Where do you want this delivered?</h3>
+    <select>
+      <% @addresses.each do |address| %>
+        <option value=<%= address.id %>><%= address.street_address %></option>
+      <% end %>
+    </select>
+<% end %>
 <div class="cart-info  cart-item panel panel-default">
   <h4>Total Cost: <%= number_to_currency(@total_cost) %></h4>
-  <h4 class="btn btn-primary"><%= @checkout_path%></h4>
+  <h4 class="btn btn-primary"><%= @checkout_path %></h4>
 </div>
