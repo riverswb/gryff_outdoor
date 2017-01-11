@@ -12,10 +12,34 @@ RSpec.feature 'visitor can search for items from navbar' do
     scenario 'landing page' do
       visit root_path
 
-      within('ul') do
-        fill_in 'q[title_cont]', with: "a"
-        click_on 'Search'
-      end
+      fill_in 'q[title_cont]', with: "a"
+      click_on 'Search'
+
+      expect(current_path).to eq(items_path)
+      expect(page).to have_content("a1")
+      expect(page).to have_content('a2')
+      expect(page).to_not have_content('b1')
+      expect(page).to_not have_content('b2')
+    end
+
+    scenario 'cart' do
+      visit cart_path
+
+      fill_in 'q[title_cont]', with: "b"
+      click_on 'Search'
+
+      expect(current_path).to eq(items_path)
+      expect(page).to have_content("b1")
+      expect(page).to have_content('b2')
+      expect(page).to_not have_content('a1')
+      expect(page).to_not have_content('a2')
+    end
+
+    scenario 'dashboard' do
+      visit dashboard_path
+
+      fill_in 'q[title_cont]', with: "a"
+      click_on 'Search'
 
       expect(current_path).to eq(items_path)
       expect(page).to have_content("a1")

@@ -19,7 +19,14 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a href="/"><%= image_tag "gryffindor_crest", class: "brand" %></a>
-		</div>
+    </div>
+		<div class="nav navbar-nav navbar-center" id="navbar">
+        <%= search_form_for @search do |f| %>
+            <%= f.label :title_cont, "Item Title Contains:"%>
+            <%= f.text_field :title_cont %>
+            <%= f.submit "Item Search" %>
+        <% end %>
+    </div>
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
         <li><%= session[:message] %><span class="sr-only">(current)</span></li>

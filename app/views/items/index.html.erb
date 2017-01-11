@@ -1,13 +1,9 @@
 </br></br></br>
 <%= search_form_for @search do |f| %>
-  <span class="field">
-    <%= f.label :title_cont, "Item Title Contains:"%>
-    <%= f.text_field :title_cont %>
-  </span>
     <%= f.label :category_name_cont, "Category Name Contains:" %>
     <%= f.search_field :category_name_cont %>
   <span class="actions">
-    <%= f.submit "Search" %>
+    <%= f.submit "Category Search" %>
   </span>
 <% end %>
 
