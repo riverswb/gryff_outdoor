@@ -60,4 +60,12 @@ class Order < ApplicationRecord
   def self.status_list
     group(:status).count(:status)
   end
+
+  def update_status(status)
+    if status == ""
+    else
+      update(status: status)
+      save
+    end
+  end
 end
