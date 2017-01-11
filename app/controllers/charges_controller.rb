@@ -1,7 +1,11 @@
 class ChargesController < ApplicationController
   def new
-    @amount = @cart.total_cost
-    @amount_string =  to_pennies(@amount)
+    if session[:user]
+      @amount = @cart.total_cost
+      @amount_string =  to_pennies(@amount)
+    else
+      redirect_to login_path
+    end
   end
 
   def to_pennies(amount)
