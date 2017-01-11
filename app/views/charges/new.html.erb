@@ -4,7 +4,10 @@
 <br>
 <br>
 
-<%= form_tag charges_path do %>
+<%= form_tag orders_path do %>
+
+<h3>Where do you want this delivered?</h3>  
+  <%= select_tag "address", options_for_select(@addresses) %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
