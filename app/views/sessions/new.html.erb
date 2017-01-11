@@ -1,7 +1,7 @@
 </br></br></br></br>
 <div class="jumbotron">
 <div class="container">
-<h1 class="name">Login</h1>
+<h2 class="page-header">Log in:</h2>
 <div class="form_inline">
   <%= form_tag @sessions_path do %>
     <div class="form-group">
@@ -10,10 +10,10 @@
     </div>
     <div class="form-group">
       <%= label_tag :password, nil, class:"control-label" %>
-      <%= password_field_tag :password, nil, class:"form-control" %>
+      <%= password_field_tag :password, nil, class:"form-control" %></br>
     </div>
 
-    <div class="buttons"><%= submit_tag "Login", class:"btn btn-primary" %>  <%= link_to "Create Account", new_user_path, class:"btn btn-default" %></div>
+    <div class="buttons"><%= submit_tag "Log in", class:"btn btn-primary" %>  <%= link_to "Create Account", new_user_path, class:"btn btn-default" %></div>
   
   <% end %>
 </div>

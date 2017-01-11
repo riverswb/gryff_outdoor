@@ -60,7 +60,7 @@ body {
   margin-top: -60px;
 }
 
-.name {
+.page-header {
   font-family: "Cabin Sketch";
   font-size: 4em;
   font-weight: 600;
@@ -165,4 +165,20 @@ nav.navbar-findcond span.badge.new {
 .buttons {
   font-family: "Cabin Sketch";
   float: right
+}
+
+.control-label {
+  color: #401B0F;
+  font-family: "Cabin Sketch";
+}
+
+.form-control {
+  font-family: "Reenie Beanie";
+  font-size: 1.5em;
+}
+
+.jumbotron {
+  background: rgba(213, 223, 235, 0.35);
+  border-color: rgb(139, 188, 231);
+  box-shadow: 0 0 2px 0 #ccc;
 }
