@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     get '/dashboard', to: "orders#dashboard"
+    resources :orders, only: [:edit, :update]
     resources :items, only: [:index, :update, :edit]
     resources :users, only: [:show]
   end

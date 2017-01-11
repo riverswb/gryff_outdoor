@@ -12,7 +12,6 @@ FactoryGirl.define do
   end
 
   factory :order do
-    status "completed"
     #status { [:ordered, :paid, :cancelled, :completed].sample }
     user
     address

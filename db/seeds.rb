@@ -14,3 +14,9 @@ end
 
 User.create(first_name: "Harry", last_name: "Potter", email: "harry@potter.com",
             password: "a", password_confirmation: "a", role: 1)
+
+FactoryGirl.create(:order)
+
+FactoryGirl.create(:order, status: 1)
+
+FactoryGirl.create(:order, status: 2)
