@@ -1,8 +1,24 @@
 <br><br>
 <h2>Admin Dashboard</h2>
 <%= link_to "View Items", admin_items_path, class: "btn btn-default" %>
+<div class='status'>
+Sort by Status
+<%= form_tag admin_dashboard_path, method: 'get' do %>
+  <%= select_tag :status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "All Orders " %>
+  <%= submit_tag 'Sort' %>
+<% end %>
+</div>
+<div class='container'>
+  <% @status_list.each do |stat, count| %>
+    <%= "(#{count}) total #{stat} orders." %>
+  <% end %>
+</div class='container'>
 <% @orders.each do |order| %>
-  <div class="panel penel-default">
-    <p>Order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order), class: "btn btn-default" %>
+  <div class="panel panel-default">
+    <p><%= order.status.capitalize %> order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
+    <%= form_tag admin_order_path(order), method: 'patch' do %>
+      <%= select_tag :update_status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "Update Status" %>
+      <%= submit_tag 'Update' %>
+    <% end %>
   </div>
-<% end %>>
+<% end %>

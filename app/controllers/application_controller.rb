@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_cart, :login_status, :get_items
 
-  helper_method :current_user
+  helper_method :current_user, :to_pennies
 
   def get_items
     @search = Item.search(params[:q])
@@ -31,5 +31,9 @@ class ApplicationController < ActionController::Base
       @login_status = "Login"
       @login_path = login_path
     end
+  end
+
+  def to_pennies(amount)
+    (amount * 100).to_i.to_s
   end
 end

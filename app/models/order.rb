@@ -6,6 +6,11 @@ class Order < ApplicationRecord
 
   enum status: %w(ordered paid cancelled completed)
 
+  scope :ordered, -> {where(:status => 0)}
+  scope :paid, -> {where(:status => 1)}
+  scope :cancelled, -> {where(:status => 2)}
+  scope :completed, -> {where(:status => 3)}
+
   def count
     self.items.count
   end
@@ -35,6 +40,32 @@ class Order < ApplicationRecord
     item = Item.find(item_id.to_i)
     quantity.times do
       self.items << item
+    end
+  end
+
+  def self.sort(category)
+    if category == 'paid'
+      @orders = Order.paid
+    elsif category == 'cancelled'
+      @orders = Order.cancelled
+    elsif category == 'completed'
+      @orders = Order.completed
+    elsif category == 'ordered'
+      @orders = Order.ordered
+    else
+      @orders = Order.all
+    end
+  end
+
+  def self.status_list
+    group(:status).count(:status)
+  end
+
+  def update_status(status)
+    if status == ""
+    else
+      update(status: status)
+      save
     end
   end
 end
