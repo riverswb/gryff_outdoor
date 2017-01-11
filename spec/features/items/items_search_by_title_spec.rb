@@ -16,7 +16,7 @@ RSpec.feature 'items can be searched by strings included in item title' do
     expect(page).to have_content("a1")
     expect(page).to have_content("b1")
 
-    click_on "Item Search"
+    click_on "Search"
 
     expect(page).to have_content("a1")
     expect(page).to have_content("a2")
@@ -30,7 +30,7 @@ RSpec.feature 'items can be searched by strings included in item title' do
     expect(page).to have_content("a1")
     expect(page).to have_content("b1")
 
-    click_on "Item Search"
+    click_on "Search"
 
     expect(page).to have_content("b1")
     expect(page).to have_content("b2")
