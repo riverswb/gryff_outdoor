@@ -14,11 +14,12 @@ RSpec.feature "When a use visits order show page" do
     within ".form_inline" do
       click_on "Login"
     end
-
+    order.update(status: 3)
+    order.save
     visit orders_path
 
     click_on "See Details", {match: :first}
-
+    
     expect(page).to have_link items[0].title
     expect(page).to have_content "Order from #{order.created_at}"
     expect(page).to have_content order.status
