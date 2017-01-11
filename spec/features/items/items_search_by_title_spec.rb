@@ -12,6 +12,10 @@ RSpec.feature 'items can be searched by strings included in item title' do
 
   scenario 'sorts items by title a' do
     fill_in "q[title_cont]", with: "a"
+
+    expect(page).to have_content("a1")
+    expect(page).to have_content("b1")
+
     click_on "Item Search"
 
     expect(page).to have_content("a1")
@@ -22,6 +26,10 @@ RSpec.feature 'items can be searched by strings included in item title' do
 
   scenario 'sorts items by title b' do
     fill_in "q[title_cont]", with: "b"
+
+    expect(page).to have_content("a1")
+    expect(page).to have_content("b1")
+
     click_on "Item Search"
 
     expect(page).to have_content("b1")
