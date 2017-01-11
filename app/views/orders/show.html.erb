@@ -1,11 +1,21 @@
-<h2>Your Order from <%= @order.created_at %></h2>
-<%= @order.user.first_name %><%= @order.user.last_name %>
+<h2>Order from <%= @order.created_at %></h2>
+<p> <%= @user.first_name %> <%= @user.last_name %></br>
+    <%= @address.street_address %></br>
+    <% if @address.secondary_address %>
+      <%= @address.secondary_address %></br>
+    <% end %>
+    <%= @address.city %>, <%= @address.state_abbr %></br>
+    <%= @address.zip_code %></br>
+</p>
+<h3>Order status: <%= @order.status %></h3>
 <div class="order-info">
-  <p>Status: <%= @order.status %> Quantity: <%= @quantity %> Total Price: <%= @order.total_price %></p>
+  <p>  Status: <%= @order.status %>
+  </br>Total Price: <%= @order.total_price.round(2) %></p>
   <p><%= @canceled_or_completed_message %></p>
 </div>
 <% @order.items.each do |item| %>
   <div class="panel panel-default">
-    <%= link_to item.title, item_path(item) %>
+    <%= link_to item.title, item_path(item) %> $<%= item.price.round(2) %>
+    x<%= quantity = Item.find_quantity(item, @order) %> = $<%= Item.find_line_subtotal(quantity, item) %>
   </div>
 <% end %>

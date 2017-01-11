@@ -17,13 +17,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user])
-    @addresses = @user.addresses
+    if session[:user]
+      @user = User.find(session[:user])
+      @addresses = @user.addresses
+    else
+      redirect_to login_path
+    end
   end
 
   def update
     @user = User.find(session[:user])
-    if @user.authenticate(user_params[:password])
+    if @user.authenticate(params[:user][:password])
       @user.update(user_params)
       save_user?(@user)
     else
@@ -32,22 +36,23 @@ class UsersController < ApplicationController
     end
   end
 
-  def save_user?(user)
-    if user.save
-      flash[:success] = 'Profile successfully updated'
-      redirect_to dashboard_path
-    else
-      flash[:danger] = user.errors.full_messages.first
-      redirect_to edit_user_path
-    end
-  end
-
   def edit
     @user = User.find(session[:user])
   end
+
   private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+end
+
+def save_user?(user)
+  if user.save
+    flash[:success] = 'Profile successfully updated'
+    redirect_to dashboard_path
+  else
+    flash[:danger] = user.errors.full_messages.first
+    redirect_to edit_user_path
   end
 end

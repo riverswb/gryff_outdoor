@@ -39,6 +39,10 @@ gem 'sass-rails', '>= 3.2'
 
 # Faker needs to be accesible in production now
   gem 'faker'
+  gem 'stripe'
+
+# Ransack is the gem that powers the search bar
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,6 +54,7 @@ group :development, :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'stripe-ruby-mock'
 end
 
 group :development do

@@ -15,11 +15,9 @@ Sort by Status
 <% @orders.each do |order| %>
   <div class="panel panel-default">
     <p><%= order.status.capitalize %> order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
-    <%= form_tag [order, edit_admin_order_path] do %>
-      <%= select_tag :status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "All Orders " %>
-      <%= select_tag :id, order.id %>
+    <%= form_tag admin_order_path(order), method: 'patch' do %>
+      <%= select_tag :update_status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "Update Status" %>
       <%= submit_tag 'Update' %>
-    
     <% end %>
   </div>
 <% end %>

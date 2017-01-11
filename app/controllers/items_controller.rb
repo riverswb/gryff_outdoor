@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @search = Item.search(params[:q])
+    @items = @search.result
+    @q = Item.ransack(params[:q])
+    @items = @q.result.includes(:category)
   end
 
   def show
@@ -12,7 +15,24 @@ class ItemsController < ApplicationController
     end
   end
 
-  private 
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    if item.save
+      flash[:success] = "Item successfully updated"
+      redirect_to item_path(item)
+    else
+      flash[:danger] = item.errors.full_messages.first
+      redirect_to edit_admin_item_path(item)
+    end
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:title, :description, :price, :image, :status)
+  end
+
   def not_found
     render :file => 'public/404.html', :status => :not_found, :layout => false
   end

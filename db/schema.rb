@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20170110165907) do
     t.integer "user_id"
     t.date    "updated_at",             null: false
     t.date    "created_at",             null: false
+    t.integer "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
@@ -73,5 +75,6 @@ ActiveRecord::Schema.define(version: 20170110165907) do
   add_foreign_key "items", "categories"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "addresses"
   add_foreign_key "orders", "users"
 end
