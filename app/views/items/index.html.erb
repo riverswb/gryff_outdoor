@@ -4,17 +4,10 @@
     <%= f.label :title_cont, "Item Title Contains:"%>
     <%= f.text_field :title_cont %>
   </span>
+    <%= f.label :category_name_cont, "Category Name Contains:" %>
+    <%= f.search_field :category_name_cont %>
   <span class="actions">
-    <%= f.submit "Item Search" %>
-  </span>
-<% end %>
-
-<%= search_form_for @q do |f| %>
-  <%= f.label :category_name_cont, "Category Name Contains:" %>
-  <%= f.search_field :category_name_cont %>
-
-  <span>
-    <%= f.submit "Category Search" %>
+    <%= f.submit "Search" %>
   </span>
 <% end %>
 
