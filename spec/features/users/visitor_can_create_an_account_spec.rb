@@ -16,7 +16,7 @@ RSpec.feature "When a visitor visits login page" do
 
     expect(page).to have_content "Logged in as David Knott"
     expect(page).to have_content "david@gmail.com"
-    expect(page).to have_link "Logout"
+    expect(page).to have_link "Log out"
   end
 
   scenario "the cannot create an account with a blank field" do

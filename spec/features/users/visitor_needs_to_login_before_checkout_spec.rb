@@ -15,16 +15,16 @@ RSpec.feature "When a vistor visits cart page" do
     click_on "View Cart"
 
     expect(page).to_not have_button "Checkout"
-    expect(page).to have_link "Login or Create Account to Checkout"
+    expect(page).to have_link "Log in or Create Account to Checkout"
     
-    click_on "Login or Create Account to Checkout"
+    click_on "Log in or Create Account to Checkout"
 
     expect(current_path).to eq login_path
   end
 
   scenario "they can create an account and their data is saved" do
     click_on "View Cart"
-    click_on "Login or Create Account to Checkout"
+    click_on "Log in or Create Account to Checkout"
     click_on "Create Account"
 
     fill_in "user[first_name]", :with => "David"
@@ -42,7 +42,7 @@ RSpec.feature "When a vistor visits cart page" do
 
   scenario "they can logout" do
     click_on "View Cart"
-    click_on "Login or Create Account to Checkout"
+    click_on "Log in or Create Account to Checkout"
     click_on "Create Account"
 
     fill_in "user[first_name]", :with => "David"
@@ -54,10 +54,10 @@ RSpec.feature "When a vistor visits cart page" do
     click_on "Create Account"
     click_on "View Cart"
 
-    click_on "Logout"
+    click_on "Log out"
     
-    expect(page).to have_link "Login"
-    expect(page).to_not have_link "Logout"
+    expect(page).to have_link "Log in"
+    expect(page).to_not have_link "Log out"
   end
 
 
