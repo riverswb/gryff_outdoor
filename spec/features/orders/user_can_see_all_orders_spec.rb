@@ -16,7 +16,7 @@ RSpec.feature "When a users visits orders path" do
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
     within ".form_inline" do
-      click_on "Login"
+      click_on "Log in"
     end
 
     visit orders_path

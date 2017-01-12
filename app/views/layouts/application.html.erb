@@ -22,9 +22,8 @@
     </div>
 		<div class="nav navbar-nav navbar-center" id="navbar">
         <%= search_form_for @search do |f| %>
-            <%= f.label :title_cont, "Item Title Contains:"%>
-            <%= f.text_field :title_cont %>
-            <%= f.submit "Item Search" %>
+          <div class="input-group">
+            <%= f.text_field :title_cont, class: "form-control", id: "search_bar", placeholder: "Looking for something?" %><span class="input-group-btn"><%= f.submit "Go", class: "btn btn-default btn-sm", id: "search_button" %></span></div>
         <% end %>
     </div>
 		<div class="collapse navbar-collapse" id="navbar">
@@ -38,7 +37,11 @@
         <% elsif current_user %>
           <li class="active"><%= link_to "Profile", admin_dashboard_path %><span class="sr-only">(current)</span></li>
         <% end %>
-        <li class="active"><%= link_to "View Cart(#{@cart.total_items})", cart_path %><span class="sr-only">(current)</span></li>
+        <% if @cart.total_items > 0 %>
+          <li class="active"><%= link_to "View Cart (#{@cart.total_items})", cart_path %><span class="sr-only">(current)</span></li>
+        <% else %>
+          <li class="active"><%= link_to "View Cart", cart_path %><span class="sr-only">(current)</span></li>
+        <% end %>
         <li class="active"><%= link_to @login_status, @login_path %><span class="sr-only">(current)</span></li>
 
         

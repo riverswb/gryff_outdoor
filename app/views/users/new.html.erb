@@ -1,4 +1,7 @@
-<h1>Please Enter Your Information!</h1>
+</br></br></br></br>
+<div class="jumbotron">
+<div class="container">
+<h3 class="instructions">Please Enter Your Information:</h3></br>
 <div class="form_inline">
   <%= form_for @user do |f| %>
     <div class="form-group">
@@ -15,13 +18,14 @@
     </div>
     <div class="form-group">
       <%= f.label "Password", class:"control-label" %>
-      <%= f.text_field :password, class:"form-control" %>
+      <%= f.password_field :password, class:"form-control" %>
     </div>
     <div class="form-group">
       <%= f.label "Password confirmation", class:"control-label" %>
-      <%= f.text_field :password_confirmation, class:"form-control" %>
-    </div>
+      <%= f.password_field :password_confirmation, class:"form-control" %>
+    </div></br>
 
-    <%= f.submit "Create Account" %>
+    <div class="buttons"><%= f.submit "Create Account", class:"btn btn-primary" %></div>
   </div>
 <% end %>
+</div></div>

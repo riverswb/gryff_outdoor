@@ -1,16 +1,21 @@
-<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-<p>Email: <%= @user.email %></p>
+</br></br></br></br>
+<div class="jumbotron">
+<div class="container">
+<div class="orders">
+<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+<h4 class="dropper"><%= @user.email %></h4>
 <% if @addresses %>
-  <p>Addresses:</p>
-  <p><% @addresses.each do |address| %>
-    <%= address.street_address %></br>
+  <h3>Addresses:</h3>
+  <% @addresses.each do |address| %>
+    <div id="items_button"><%= address.street_address %></br>
     <% if address.secondary_address %>
       <%= address.secondary_address %></br>
     <% end %>
     <%= address.city %>, <%= address.state_abbr %></br>
     <%= address.zip_code %></br>
-    <%= button_to "Delete Address", user_address_path(@user, address.id), method: "delete" %>
-  <% end %></p>
+    <%= button_to "Delete Address", user_address_path(@user, address.id), method: "delete" %></br>
+  <% end %></div>
 <% end %>
-<%= button_to "Add an Address", new_user_address_path(@user), method: "get" %>
-<%= button_to "Edit", edit_user_path(@user), method: "get" %>
+</br><%= button_to "Add an Address", new_user_address_path(@user), method: "get", class: "search_button" %>
+<%= button_to "Edit Your Account", edit_user_path(@user), method: "get", class: "search_button" %>
+</div>

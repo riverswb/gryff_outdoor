@@ -13,7 +13,7 @@ RSpec.feature 'visitor can search for items from navbar' do
       visit root_path
 
       fill_in 'q[title_cont]', with: "a"
-      click_on 'Search'
+      click_on 'Go'
 
       expect(current_path).to eq(items_path)
       expect(page).to have_content("a1")
@@ -26,7 +26,7 @@ RSpec.feature 'visitor can search for items from navbar' do
       visit cart_path
 
       fill_in 'q[title_cont]', with: "b"
-      click_on 'Search'
+      click_on 'Go'
 
       expect(current_path).to eq(items_path)
       expect(page).to have_content("b1")
@@ -39,7 +39,7 @@ RSpec.feature 'visitor can search for items from navbar' do
       visit dashboard_path
 
       fill_in 'q[title_cont]', with: "a"
-      click_on 'Search'
+      click_on 'Go'
 
       expect(current_path).to eq(items_path)
       expect(page).to have_content("a1")

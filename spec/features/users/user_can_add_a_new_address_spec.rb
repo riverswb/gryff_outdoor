@@ -11,7 +11,7 @@ RSpec.feature "When a user visits their user dashboard" do
     fill_in "Email", :with => @user.email
     fill_in "Password", :with => @user.password
       within ".form_inline" do
-        click_on "Login"
+        click_on "Log in"
       end
     click_on "Add an Address"
     expect(current_path).to eq(new_user_address_path(@user))
@@ -33,7 +33,7 @@ RSpec.feature "When a user visits their user dashboard" do
     fill_in "Email", :with => @user.email
     fill_in "Password", :with => @user.password
       within ".form_inline" do
-        click_on "Login"
+        click_on "Log in"
       end
     click_on "Add an Address"
     @address = @user.addresses.first

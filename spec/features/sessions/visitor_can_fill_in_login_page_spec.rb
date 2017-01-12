@@ -11,7 +11,7 @@ RSpec.feature "When a visitor visits root path" do
   scenario "they can login" do
     visit "/"
 
-    click_on "Login"
+    click_on "Log in"
 
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
@@ -19,7 +19,7 @@ RSpec.feature "When a visitor visits root path" do
     expect(page).to have_link "Create Account"
 
     within ".form_inline" do
-      click_on "Login"
+      click_on "Log in"
     end
 
     expect(current_path).to eq dashboard_path
@@ -32,7 +32,7 @@ RSpec.feature "When a visitor visits root path" do
     fill_in "Password", :with => "wrong_password"
 
     within ".form_inline" do
-      click_on "Login"
+      click_on "Log in"
     end
 
     expect(current_path).to eq login_path
@@ -45,7 +45,7 @@ RSpec.feature "When a visitor visits root path" do
     fill_in "Password", :with => user.password
 
     within ".form_inline" do
-      click_on "Login"
+      click_on "Log in"
     end
 
     expect(current_path).to eq login_path

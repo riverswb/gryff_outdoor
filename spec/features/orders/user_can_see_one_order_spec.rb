@@ -12,7 +12,7 @@ RSpec.feature "When a use visits order show page" do
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
     within ".form_inline" do
-      click_on "Login"
+      click_on "Log in"
     end
     order.update(status: 3)
     order.save
