@@ -31,7 +31,11 @@
         <% elsif current_user %>
           <li class="active"><%= link_to "Profile", admin_dashboard_path %><span class="sr-only">(current)</span></li>
         <% end %>
-        <li class="active"><%= link_to "View Cart(#{@cart.total_items})", cart_path %><span class="sr-only">(current)</span></li>
+        <% if @cart.total_items > 0 %>
+          <li class="active"><%= link_to "View Cart (#{@cart.total_items})", cart_path %><span class="sr-only">(current)</span></li>
+        <% else %>
+          <li class="active"><%= link_to "View Cart", cart_path %><span class="sr-only">(current)</span></li>
+        <% end %>
         <li class="active"><%= link_to @login_status, @login_path %><span class="sr-only">(current)</span></li>
 
         
