@@ -8,14 +8,14 @@ RSpec.feature 'A logged in user logs out' do
 
     fill_in 'email', with: @user.email
     fill_in 'password', with: @user.password
-    click_button 'Login'
+    click_button 'Log in'
   end
 
   describe 'a logged in user logs out' do
     scenario 'from the dashboard' do
       expect(current_path).to eq(dashboard_path)
 
-      click_on 'Logout'
+      click_on 'Log out'
 
       expect(current_path).to eq(login_path)
     end
@@ -23,7 +23,7 @@ RSpec.feature 'A logged in user logs out' do
     scenario 'from the index' do
     visit items_path
 
-    click_on 'Logout'
+    click_on 'Log out'
 
     expect(current_path).to eq(items_path)
     end
@@ -31,7 +31,7 @@ RSpec.feature 'A logged in user logs out' do
     scenario 'from the cart' do
       visit cart_path
 
-      click_on 'Logout'
+      click_on 'Log out'
 
       expect(current_path).to eq(cart_path)
     end
@@ -40,7 +40,7 @@ RSpec.feature 'A logged in user logs out' do
       category = create(:category)
       visit "/#{category.name}"
 
-      click_on 'Logout'
+      click_on 'Log out'
 
       expect(current_path).to eq("/#{category.name}")
     end

@@ -10,7 +10,7 @@ RSpec.feature 'When an admin views items index' do
     visit login_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Login'
+    click_button 'Log in'
 
     expect(current_path).to eq(admin_dashboard_path)
 

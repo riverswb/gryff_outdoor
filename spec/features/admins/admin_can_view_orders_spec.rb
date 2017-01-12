@@ -10,7 +10,7 @@ RSpec.feature 'Admin sees orders on dashboard' do
     visit login_path
     fill_in "Email", with: @admin.email
     fill_in "Password", with: @admin.password
-    click_button "Login"
+    click_button "Log in"
   end
 
   scenario 'can see total number of orders for each status type' do

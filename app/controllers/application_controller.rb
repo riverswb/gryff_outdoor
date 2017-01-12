@@ -16,10 +16,9 @@ class ApplicationController < ActionController::Base
     @cart = Cart.new(session[:cart])
   end
 
-
   def login_status
     if session[:user]
-      @login_status = "Logout"
+      @login_status = "Log out"
       @login_path = logout_path
     else
       @login_status = "Log in"

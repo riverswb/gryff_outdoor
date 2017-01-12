@@ -11,7 +11,7 @@ RSpec.feature 'Admins cannot edit users data' do
 
     fill_in 'email', with: @admin.email
     fill_in 'password', with: @admin.password
-    click_button 'Login'
+    click_button 'Log in'
 
     visit user_path(@admin)
     click_on 'Edit'
@@ -33,7 +33,7 @@ RSpec.feature 'Admins cannot edit users data' do
 
     fill_in 'email', with: @admin.email
     fill_in 'password', with: @admin.password
-    click_button 'Login'
+    click_button 'Log in'
 
     visit admin_user_path(@user)
 
@@ -49,7 +49,7 @@ RSpec.feature 'Admins cannot edit users data' do
 
       fill_in 'email', with: @admin.email
       fill_in 'password', with: @admin.password
-      click_button 'Login'
+      click_button 'Log in'
 
       visit user_path(@admin)
       click_on 'Edit'
@@ -71,7 +71,7 @@ RSpec.feature 'Admins cannot edit users data' do
 
       fill_in 'email', with: @admin.email
       fill_in 'password', with: @admin.password
-      click_button 'Login'
+      click_button 'Log in'
 
       visit user_path(@admin)
       click_on 'Edit'
@@ -93,7 +93,7 @@ RSpec.feature 'Admins cannot edit users data' do
 
       fill_in 'email', with: @admin.email
       fill_in 'password', with: @admin.password
-      click_button 'Login'
+      click_button 'Log in'
 
       visit user_path(@admin)
       click_on 'Edit'
@@ -115,7 +115,7 @@ RSpec.feature 'Admins cannot edit users data' do
 
       fill_in 'email', with: @admin.email
       fill_in 'password', with: @admin.password
-      click_button 'Login'
+      click_button 'Log in'
 
       visit user_path(@admin)
       click_on 'Edit'
@@ -137,7 +137,7 @@ RSpec.feature 'Admins cannot edit users data' do
 
       fill_in 'email', with: @admin.email
       fill_in 'password', with: @admin.password
-      click_button 'Login'
+      click_button 'Log in'
 
       visit user_path(@admin)
       click_on 'Edit'
@@ -160,7 +160,7 @@ RSpec.feature 'Admins cannot edit users data' do
 
       fill_in 'email', with: @admin.email
       fill_in 'password', with: @admin.password
-      click_button 'Login'
+      click_button 'Log in'
 
       visit user_path(@admin)
       click_on 'Edit'

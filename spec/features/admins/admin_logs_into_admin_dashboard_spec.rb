@@ -9,7 +9,7 @@ RSpec.feature "When an admin logs in" do
     fill_in "Password", :with => user.password
 
     within ".form_inline" do
-      click_on "Login"
+      click_on "Log in"
     end
 
     expect(current_path).to eq admin_dashboard_path

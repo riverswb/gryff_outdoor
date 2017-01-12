@@ -9,7 +9,7 @@ RSpec.feature 'Admin can edit items' do
 
     fill_in 'email', with: @admin.email
     fill_in 'password', with: @admin.password
-    click_button 'Login'
+    click_button 'Log in'
     visit admin_items_path
 
     click_on 'Actions'
