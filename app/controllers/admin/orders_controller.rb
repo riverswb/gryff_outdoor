@@ -11,5 +11,4 @@ class Admin::OrdersController < Admin::BaseController
     order.update_status(params[:update_status])
     redirect_to admin_dashboard_path
   end
-
 end

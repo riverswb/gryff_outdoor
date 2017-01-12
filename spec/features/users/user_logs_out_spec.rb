@@ -25,7 +25,7 @@ RSpec.feature 'A logged in user logs out' do
 
     click_on 'Logout'
 
-    expect(current_path).to eq(items_path)
+    expect(current_path).to eq(login_path)
     end
 
     scenario 'from the cart' do
@@ -33,7 +33,7 @@ RSpec.feature 'A logged in user logs out' do
 
       click_on 'Logout'
 
-      expect(current_path).to eq(cart_path)
+      expect(current_path).to eq(login_path)
     end
 
     scenario 'from a category' do
@@ -42,7 +42,7 @@ RSpec.feature 'A logged in user logs out' do
 
       click_on 'Logout'
 
-      expect(current_path).to eq("/#{category.name}")
+      expect(current_path).to eq(login_path)
     end
   end
 end
