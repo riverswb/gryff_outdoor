@@ -21,11 +21,20 @@
 			<a href="/"><%= image_tag "gryffindor_crest", class: "brand" %></a>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active" id="shows-loggedin"><%= session[:message] %><span class="sr-only">(current)</span></li>
+      </ul>
 			<ul class="nav navbar-nav navbar-right">
-        <li><%= session[:message] %><span class="sr-only">(current)</span></li>
 				<li class="active"><%= link_to "Items", items_path %><span class="sr-only">(current)</span></li>
-        <li class="active"><%= link_to "View Cart", cart_path %><span class="sr-only">(current)</span></li>
+        <% if current_user %>
+          <li class="active"><%= link_to "Dashboard", dashboard_path %><span class="sr-only">(current)</span></li>
+        <% elsif current_user %>
+          <li class="active"><%= link_to "Profile", admin_dashboard_path %><span class="sr-only">(current)</span></li>
+        <% end %>
+        <li class="active"><%= link_to "View Cart(#{@cart.total_items})", cart_path %><span class="sr-only">(current)</span></li>
         <li class="active"><%= link_to @login_status, @login_path %><span class="sr-only">(current)</span></li>
+
+        
       </ul>
       </div>
 		</div>

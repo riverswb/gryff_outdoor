@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_cart, :login_status
 
-  helper_method :current_user
+  helper_method :current_user, :to_pennies
 
   def current_user
     @current_user ||= User.find(session[:user]) if session[:user]
@@ -25,5 +25,9 @@ class ApplicationController < ActionController::Base
       @login_status = "Log in"
       @login_path = login_path
     end
+  end
+
+  def to_pennies(amount)
+    (amount * 100).to_i.to_s
   end
 end

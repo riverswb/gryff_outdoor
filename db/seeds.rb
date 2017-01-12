@@ -12,5 +12,10 @@ category_3 = Category.create(name: 'climbing')
   )
 end
 
-User.create(first_name: "Harry", last_name: "Potter", email: "harry@potter.com",
+user = User.create(first_name: "Harry", last_name: "Potter", email: "harry@potter.com",
             password: "a", password_confirmation: "a", role: 1)
+
+Address.create(street_address:"4747 Poplar Place", city:"Boulder", state_abbr:"CO", zip_code:"80304", user_id: user.id)
+Address.create(street_address:"4748 Poplar Place", city:"Boulder", state_abbr:"CO", zip_code:"80304", user_id: user.id)
+Address.create(street_address:"4749 Poplar Place", city:"Boulder", state_abbr:"CO", zip_code:"80304", user_id: user.id)
+Address.create(street_address:"4750 Poplar Place", city:"Boulder", state_abbr:"CO", zip_code:"80304", user_id: user.id)
