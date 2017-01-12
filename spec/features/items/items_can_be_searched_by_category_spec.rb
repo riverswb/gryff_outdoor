@@ -24,7 +24,7 @@ RSpec.feature 'items can be searched by strings included in category name' do
 
       fill_in "q[category_name_cont]", with: "hiking"
 
-      click_on "Search"
+      click_on "Category Search"
 
       expect(page).to have_content("a1")
       expect(page).to have_content("a2")
@@ -39,7 +39,7 @@ RSpec.feature 'items can be searched by strings included in category name' do
 
       fill_in "q[category_name_cont]", with: "fishing"
 
-      click_on "Search"
+      click_on "Category Search"
 
       expect(page).to have_content("b1")
       expect(page).to have_content("b2")
@@ -54,7 +54,7 @@ RSpec.feature 'items can be searched by strings included in category name' do
 
       fill_in "q[category_name_cont]", with: "climbing"
 
-      click_on "Search"
+      click_on "Category Search"
 
       expect(page).to have_content("c1")
       expect(page).to have_content("c2")
@@ -69,7 +69,7 @@ RSpec.feature 'items can be searched by strings included in category name' do
 
       fill_in "q[category_name_cont]", with: "x"
 
-      click_on "Search"
+      click_on "Category Search"
 
       expect(page).to_not have_content("a1")
       expect(page).to_not have_content("b2")
