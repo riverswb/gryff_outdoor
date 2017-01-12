@@ -1,11 +1,15 @@
-<br><br>
-<h2>Admin Dashboard</h2>
-<%= link_to "View Items", admin_items_path, class: "btn btn-default" %>
+</br></br></br></br>
+<div class="jumbotron">
+<div class="container">
+<div class="orders">
+<h2 class="instructions">Admin Dashboard</h2></br>
+<%= link_to "View Items", admin_items_path, class: "btn btn-default", id: "items_button"%>
 <div class='status'>
-Sort by Status
+</br><h2>All Orders:</h2>
+<h3>Sort by Status</h3>
 <%= form_tag admin_dashboard_path, method: 'get' do %>
-  <%= select_tag :status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "All Orders " %>
-  <%= submit_tag 'Sort' %>
+  <%= select_tag :status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: false, class: "dropper" %>
+  <%= submit_tag 'Sort', id: "search_button" %>
 <% end %>
 </div>
 <div class='container'>
@@ -20,5 +24,6 @@ Sort by Status
       <%= select_tag :update_status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "Update Status" %>
       <%= submit_tag 'Update' %>
     <% end %>
+  </div>
   </div>
 <% end %>
