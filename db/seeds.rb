@@ -17,5 +17,3 @@ user = User.create(first_name: "Harry", last_name: "Potter", email: "harry@potte
 
 Address.create(street_address:"4747 Poplar Place", city:"Boulder", state_abbr:"CO", zip_code:"80304", user_id: user.id)
 Address.create(street_address:"4748 Poplar Place", city:"Boulder", state_abbr:"CO", zip_code:"80304", user_id: user.id)
-Address.create(street_address:"4749 Poplar Place", city:"Boulder", state_abbr:"CO", zip_code:"80304", user_id: user.id)
-Address.create(street_address:"4750 Poplar Place", city:"Boulder", state_abbr:"CO", zip_code:"80304", user_id: user.id)

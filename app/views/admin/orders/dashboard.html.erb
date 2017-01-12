@@ -19,7 +19,7 @@
 </div class='container'>
 <% @orders.each do |order| %>
   <div class="panel panel-default">
-    <p><%= order.status.capitalize %> order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
+    <p class="instructions"><%= order.status.capitalize %> order from <%= order.created_at %> <%= pluralize(order.count, 'item') %> <%= link_to "See Details", order_path(order) %>
     <%= form_tag admin_order_path(order), method: 'patch' do %>
       <%= select_tag :update_status, options_for_select([:ordered, :paid, :cancelled, :completed]), include_blank: "Update Status" %>
       <%= submit_tag 'Update' %>
