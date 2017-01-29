@@ -7,9 +7,10 @@
   </span>
 </div></br></br>
 <% end %>
-
 <% @items.each do |item| %>
-  <ul class="list-group row">
+<div class="jumbotron">
+<div class="container">
+  <ul class="list-group row" id="items">
     <li class="col-md-2"></li>
     <li class="list-group-item col-md-4"><img src="<%= item.image %>"
       class="img-thumbnail" alt="Responsive thunbnail"</li>
@@ -18,3 +19,5 @@
       <div class="cart-button" id="item-name"><%= button_to "Add to cart", carts_path(item_id: item.id, class:"btn btn-primary") %></li></div></div>
   </ul>
 <% end %>
+  </div>
+  </div>

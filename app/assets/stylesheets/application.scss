@@ -194,6 +194,11 @@ nav.navbar-findcond span.badge.new {
   font-size: 1.5em;
 }
 
+.flash {
+  font-family: "Reenie Beanie";
+  font-size: 1.5em;
+}
+
 .jumbotron {
   background: rgba(213, 223, 235, 0.30);
   border-color: #431A0F;
@@ -227,4 +232,8 @@ h3 {
 
 #items_button {
   font-family: "Cabin Sketch";
+}
+
+#items li{
+  list-style-type: none;
 }
