@@ -1,9 +1,9 @@
 </br></br></br>
 <%= search_form_for @search do |f| %>
-    <%= f.label :category_name_cont, "Category Name Contains:" %>
-    <%= f.search_field :category_name_cont %>
-  <span class="actions">
-    <%= f.submit "Category Search" %>
+  <span class="field">
+
+    <%= f.text_field :title_cont %>
+    <%= f.submit %>
   </span>
 <% end %>
 

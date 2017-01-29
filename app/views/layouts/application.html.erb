@@ -18,14 +18,10 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="/"><%= image_tag "gryffindor_crest", class: "brand" %></a>
+      <a href="/"><%= image_tag "gryffindor_crest", class: "brand" %></a>
     </div>
-		<div class="nav navbar-nav navbar-center" id="navbar">
-        <%= search_form_for @search do |f| %>
-          <div class="input-group">
-            <%= f.text_field :title_cont, class: "form-control", id: "search_bar", placeholder: "Looking for something?" %><span class="input-group-btn"><%= f.submit "Go", class: "btn btn-default btn-sm", id: "search_button" %></span></div>
-        <% end %>
-    </div>
+
+    
 		<div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav navbar-left">
         <li class="active" id="shows-loggedin"><%= session[:message] %><span class="sr-only">(current)</span></li>
@@ -49,6 +45,7 @@
       </div>
 		</div>
   </div>
+  
 </nav>
     <% flash.each do |type, message| %>
         </br></br></br></br><%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
