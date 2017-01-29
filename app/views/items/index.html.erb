@@ -1,10 +1,11 @@
 </br></br></br>
 <%= search_form_for @search do |f| %>
-  <span class="field">
+<div class ="form-group"></div>
+  <span class="field" >
+    <%= f.text_field :title_cont, class: "form-control", id: "search_bar", placeholder: "Looking for something?" %>
 
-    <%= f.text_field :title_cont %>
-    <%= f.submit %>
   </span>
+</div></br></br>
 <% end %>
 
 <% @items.each do |item| %>
