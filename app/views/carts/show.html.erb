@@ -1,23 +1,29 @@
-</br></br></br><h2 class="cart-title">Items in your Cart</h2>
+</br></br></br>
+<div class="jumbotron">
+<div class="container">
+<h2 class="cart-title" class"instructions">Items in your Cart</h2>
   <div class="cart-item attribute-name">
-    <span class="cart-attribute">Name</span>
-    <span class="cart-attribute">Price</span>
-    <span class="cart-attribute label-left">Quantity</span>
+    <span id="item-name" class="cart-attribute">Name</span>
+    <span id="item-name" class="cart-attribute">Price</span>
+    <span id="item-name" class="cart-attribute label-left">Quantity</span>
   </div>
   <% @items.each do |item| %>
   <div class="item-list">
     <div class="cart-item panel panel-default">
-      <span class="cart-attribute"><%= item[0].title %></span>
-      <span class="cart-attribute"><%= number_to_currency(item[0].price) %></span>
-      <span class="cart-attribute"><%= item[1] %></span>
+      <span id="cart-item" class="cart-attribute"><%= item[0].title %></span>
+      <span id="cart-item" class="cart-attribute"><%= number_to_currency(item[0].price) %></span>
+      <span id="cart-item" class="cart-attribute"><%= item[1] %></span>
       <%= link_to "+", cart_path(item_id: item[0].id, quantity_change: "increase"), method: "patch", class: "btn btn-success" %>
       <%= link_to "-", cart_path(item_id: item[0].id, quantity_change: "decrease"), method: "patch", class: "btn btn-info" %>
-      <%= link_to "Remove", carts_path(item_id: item[0].id), method: "delete", class: "btn btn-danger" %>
+      <%= link_to "Remove", carts_path(item_id: item[0].id), method: "delete", class: "btn btn-danger", id: "remove-item" %>
     </div>
   </div>
   <% end %>
+  </div>
+  </div>
+  </div>
 
-<div class="cart-info  cart-item panel panel-default">
-  <h4>Total Cost: <%= number_to_currency(@total_cost) %></h4>
-  <h4 class="btn btn-primary"><%= @checkout_path %></h4>
+<div class="cart-info cart-item panel panel-default">
+  <h2 class="cart-title" class="cart-item">Total Cost: <%= number_to_currency(@total_cost) %></h2>
+  <h2 class="btn btn-primary"><%= @checkout_path %></h2>
 </div>

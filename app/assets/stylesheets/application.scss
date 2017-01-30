@@ -197,6 +197,7 @@ nav.navbar-findcond span.badge.new {
 .flash {
   font-family: "Reenie Beanie";
   font-size: 1.5em;
+  text-align: center;
 }
 
 .jumbotron {
@@ -240,4 +241,20 @@ h3 {
 
 .category {
   text-align: center;
+}
+
+#cart-item {
+  font-family: "Cabin Sketch";
+}
+
+.cart-info  cart-item panel panel-default {
+  float: bottom;
+}
+
+.panel panel-default {
+  float: bottom;
+}
+
+#remove-item {
+  font-family: 'Cabin Sketch';
 }

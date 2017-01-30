@@ -13,9 +13,10 @@
     <% end %>
     <%= address.city %>, <%= address.state_abbr %></br>
     <%= address.zip_code %></br>
-    <%= button_to "Delete Address", user_address_path(@user, address.id), method: "delete" %></br>
+    <%= button_to "Delete Address", user_address_path(@user, address.id), method: "delete", class: "buttons" %></br>
   <% end %></div>
 <% end %>
-</br><%= button_to "Add an Address", new_user_address_path(@user), method: "get", class: "search_button" %>
-<%= button_to "Edit Your Account", edit_user_path(@user), method: "get", class: "search_button" %>
+</br>
+<%= button_to "Add an Address", new_user_address_path(@user), method: "get", class: "search_button", class: "buttons" %>
+<%= button_to "Edit Your Account", edit_user_path(@user), method: "get", class: "search_button", class: "buttons" %>
 </div>
