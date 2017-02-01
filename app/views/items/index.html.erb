@@ -1,14 +1,16 @@
 </br></br></br>
 <%= search_form_for @search do |f| %>
-    <%= f.label :category_name_cont, "Category Name Contains:" %>
-    <%= f.search_field :category_name_cont %>
-  <span class="actions">
-    <%= f.submit "Category Search" %>
-  </span>
-<% end %>
+<div class ="form-group"></div>
+  <span class="field" >
+    <%= f.text_field :title_cont, class: "form-control", id: "search_bar", placeholder: "Looking for something?" %>
 
+  </span>
+</div></br></br>
+<% end %>
 <% @items.each do |item| %>
-  <ul class="list-group row">
+<div class="jumbotron">
+<div class="container">
+  <ul class="list-group row" id="items">
     <li class="col-md-2"></li>
     <li class="list-group-item col-md-4"><img src="<%= item.image %>"
       class="img-thumbnail" alt="Responsive thunbnail"</li>
@@ -17,3 +19,5 @@
       <div class="cart-button" id="item-name"><%= button_to "Add to cart", carts_path(item_id: item.id, class:"btn btn-primary") %></li></div></div>
   </ul>
 <% end %>
+  </div>
+  </div>

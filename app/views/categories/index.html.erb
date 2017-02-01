@@ -1,12 +1,17 @@
 <br><br><br>
-<h1><%= @category.name %></h1>
+<h2 class="cart-title" class="instructions"><%= @category.name.capitalize %></h2></br>
 <% @category.items.each do |item| %>
-  <ul class="list-group row">
+<div class="jumbotron">
+<div class="container">
+<ul class="list-group row" id="items">
     <li class="col-md-2"></li>
     <li class="list-group-item col-md-4"><img src="<%= item.image %>"
       class="img-thumbnail" alt="Responsive thunbnail"</li>
-    <li class="list-group-item col-md-4"><strong><%= item.title %></strong>
-      <br/> <%= item.description %> <br/> $<%= item.price %><br/>
-      <%= button_to "Add to cart", carts_path(item_id: item.id, class:"btn btn-primary") %></li>
+    <li class="list-group-item col-md-4"><div id="item-name"><%= item.title %></div>
+      <div id="item-description"><%= item.description %> <br/><div id="item-name">$<%= item.price %></div></div>
+      <div class="cart-button" id="item-name"><%= button_to "Add to cart", carts_path(item_id: item.id, class:"btn btn-primary") %></li></div></div>
   </ul>
 <% end %>
+  </div>
+  </div>
+
